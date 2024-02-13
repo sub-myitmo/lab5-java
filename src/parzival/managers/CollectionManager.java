@@ -123,8 +123,8 @@ public class CollectionManager {
     /**
      * Метод добавляет новую группу в коллекцию
      */
-    public void addElementToCollection(){
-        Collections.shuffle(stackCollection);
+    public void addElementToCollection(StudyGroup studyGroup){
+        stackCollection.add(studyGroup);
     }
 
 }

@@ -1,9 +1,13 @@
 package parzival.commands;
 
+import parzival.exceptions.IncorrectInputException;
+import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.managers.creators.CreateGroup;
+
+import java.util.Scanner;
 
 public class Add extends Command{
     /**
@@ -11,16 +15,15 @@ public class Add extends Command{
      */
     private final CollectionManager collectionManager;
     private Console console;
-    private ProcessingOfInputData processingOfInputData;
+    private Scanner userScanner;
 
     /**
      * Конструктор класса Add
      * @param collectionManager менеджер коллекции.
      */
-    public Add(CollectionManager collectionManager, ProcessingOfInputData processingOfInputData, Console console) {
+    public Add(CollectionManager collectionManager, Scanner userScanner, Console console) {
         super(console, "add {element}", "добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;
-        this.processingOfInputData = processingOfInputData;
     }
 
     /**
@@ -34,12 +37,12 @@ public class Add extends Command{
         try{
             if(!args[1].isEmpty()) throw new WrongCommandArgsException();
 
-            collectionManager.addElementToCollection((new CreateGroup(collectionManager, console)).make());
+            collectionManager.addElementToCollection((new CreateGroup(collectionManager, userScanner, console)).make());
 
             console.println("Группа была создана успешно");
             return true;
 
-        } catch (WrongCommandArgsException e){
+        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException e){
             console.println(e.toString());
             return false;
         }

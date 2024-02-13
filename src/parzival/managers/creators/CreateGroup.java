@@ -77,7 +77,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     private String requestName() throws IncorrectScriptException {
         String name;
         while (true) {
-            console.printf("Введите имя учебной группы: \");
+            console.printf("Введите имя учебной группы:");
             try {
                 name = userScanner.nextLine().trim();
 

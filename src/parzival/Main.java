@@ -35,7 +35,6 @@ public class Main {
         collectionManager.setCollection(startStack);
 
         Scanner userScanner = new Scanner(System.in);
-        ProcessingOfInputData processingOfInputData = new ProcessingOfInputData(collectionManager, userScanner, console);
 
         CommandManager commandManager = new CommandManager() {{
             addCommand("help", new Help(this, console));
@@ -50,7 +49,7 @@ public class Main {
             addCommand("print_ascending", new PrintAscending(collectionManager, console));
             addCommand("print_field_ascending_students_count", new PrintFieldAscendingStudentsCount(collectionManager, console));
             addCommand("save", new Save(fileManager, parseManager, collectionManager, console));
-            addCommand("add {element}", new Add(collectionManager, processingOfInputData, console));
+            addCommand("add {element}", new Add(collectionManager, userScanner, console));
         }};
 
         InputManager inputManager = new InputManager(console, collectionManager, commandManager, userScanner);
