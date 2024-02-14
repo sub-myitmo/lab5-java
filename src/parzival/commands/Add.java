@@ -1,5 +1,6 @@
 package parzival.commands;
 
+
 import parzival.exceptions.IncorrectInputException;
 import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.WrongCommandArgsException;

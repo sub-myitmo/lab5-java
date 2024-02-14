@@ -47,7 +47,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
      * Функция, спрашивающая у пользователя , которрое после приведится к данным типа Long
      *
      * @param request запрос того, что требуется ввести
-     * @return variable - переменная от пользователя
+     * @return number - переменная от пользователя
      * @throws IncorrectScriptException если при чтении скрипта возникла ошибка
      */
     private Long requestNumberField(String request) throws IncorrectScriptException {
@@ -96,8 +96,8 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
         return name;
     }
 
-    private Coordinates requestCoordinates() throws IncorrectScriptException {
-        return new CreateCoordinates(collectionManager, userScanner, console).make();
+    private Coordinates requestCoordinates() throws IncorrectScriptException, IncorrectInputException {
+        return (new CreateCoordinates(userScanner, console)).make();
     }
 
     private Long requestStudentsCount() throws IncorrectScriptException {
@@ -116,8 +116,8 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
         return new CreateSemester(collectionManager, userScanner, console).make();
     }
 
-    private Person requestGroupAdmin() throws IncorrectScriptException {
-        return new CreateGroupAdmin(collectionManager, userScanner, console).make();
+    private Person requestGroupAdmin() throws IncorrectScriptException, IncorrectInputException {
+        return (new CreatePerson(collectionManager, userScanner, console)).make();
     }
 
 

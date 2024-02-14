@@ -36,8 +36,6 @@ public class InputManager {
 
                 userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
 
-                commandManager.addHistory(userCommand[0]);
-
                 status = executeCommand(userCommand);
             } while (status != 2);
         } catch (NoSuchElementException exception) {

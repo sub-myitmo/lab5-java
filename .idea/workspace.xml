@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lab5-java:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5605622e-55e6-49b6-aa8f-0b843e1b8b49" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab5_java_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lab5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/IncorrectInputException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/IncorrectScriptException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/MustBeNotEmptyException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/NoExistCollectionException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/NoExistCommandException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/WrongCommandArgsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/CollectionManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/CommandManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/Console.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/FileManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/Logger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/BaseCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Coordinates.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Location.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Semester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/StudyGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/validate/Validatable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2cLaJkeFzHWjAnbXB8jvTL7i6lg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out/artifacts/lab5_java_jar" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-a73289cf" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5605622e-55e6-49b6-aa8f-0b843e1b8b49" name="Changes" comment="" />
+      <created>1707893244890</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707893244890</updated>
+      <workItem from="1707893247943" duration="528000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

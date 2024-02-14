@@ -126,5 +126,8 @@ public class CollectionManager {
     public void addElementToCollection(StudyGroup studyGroup){
         stackCollection.add(studyGroup);
     }
+    public void updateElement(StudyGroup oldStudyGroup, StudyGroup newStudyGroup){
+        oldStudyGroup.update(newStudyGroup);
+    }
 
 }
