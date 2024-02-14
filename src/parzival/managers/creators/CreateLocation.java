@@ -5,22 +5,26 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+import parzival.managers.InputManager;
+import parzival.managers.StatusScript;
 import parzival.models.Coordinates;
 import parzival.models.Location;
 
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Класс для создания местоположения человека
+ *
+ * @author petrovviacheslav
+ */
 public class CreateLocation extends BaseCreator<Location>{
-    private boolean isScriptRun = CreateGroup.getIsScriptRun();
+    private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner;
-    private final CollectionManager collectionManager;
+    private Scanner userScanner = InputManager.getUserScanner();
 
-    public CreateLocation(CollectionManager collectionManager, Scanner userScanner, Console console) {
+    public CreateLocation(Console console) {
         this.console = console;
-        this.userScanner = userScanner;
-        this.collectionManager = collectionManager;
     }
 
 
@@ -44,7 +48,7 @@ public class CreateLocation extends BaseCreator<Location>{
     private Float requestX() throws IncorrectScriptException {
         Float X;
         while (true) {
-            console.printf("Введинте переменную Х (тип Float)");
+            console.printf("Введите переменную Х (для Location, тип Float): ");
             try {
                 String variable = userScanner.nextLine().trim();
 
@@ -77,7 +81,7 @@ public class CreateLocation extends BaseCreator<Location>{
     private Integer requestY() throws IncorrectScriptException {
         Integer Y;
         while (true) {
-            console.printf("Введинте переменную Y (тип Integer): ");
+            console.printf("Введите переменную Y (для Location, тип Integer): ");
             try {
                 String variable = userScanner.nextLine().trim();
 
@@ -104,7 +108,7 @@ public class CreateLocation extends BaseCreator<Location>{
     private double requestZ() throws IncorrectScriptException {
         double Z;
         while (true) {
-            console.printf("Введинте переменную Z (тип double)");
+            console.printf("Введите переменную Z (для Location, тип double): ");
             try {
                 String variable = userScanner.nextLine().trim();
 

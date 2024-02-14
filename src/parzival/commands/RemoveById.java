@@ -5,9 +5,23 @@ import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 
+/**
+ * Команда remove_by_id - удалить элемент из коллекции по его id
+ *
+ * @author petrovviacheslav
+ */
 public class RemoveById extends Command {
-    private CollectionManager collectionManager;
+    /**
+     * Менеджер коллекции
+     */
+    private final CollectionManager collectionManager;
 
+    /**
+     * Конструктор класса RemoveById
+     *
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
+     */
     public RemoveById(CollectionManager collectionManager, Console console) {
         super(console, "remove_by_id", "удалить элемент из коллекции по его id");
         this.collectionManager = collectionManager;
@@ -28,7 +42,7 @@ public class RemoveById extends Command {
             if (collectionManager.getById(id) == null) throw new NoExistCollectionException();
             collectionManager.removeGroup(collectionManager.getById(id));
 
-            console.println("Организация была успешно удалена");
+            console.println("Группа была успешно удалена");
             return true;
 
         } catch (WrongCommandArgsException | NoExistCollectionException e) {

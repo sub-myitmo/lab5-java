@@ -8,14 +8,20 @@ import parzival.managers.Console;
 
 /**
  * Команда show - вывести в стандартный поток вывода все элементы коллекции в строковом представлении
+ *
+ * @author petrovviacheslav
  */
 public class Show extends Command {
-
+    /**
+     * Менеджер коллекции
+     */
     private final CollectionManager collectionManager;
 
     /**
-     * Конструктор
-     * @param collectionManager менеджер коллекции.
+     * Конструктор класса Show
+     *
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public Show(CollectionManager collectionManager, Console console) {
         super(console, "show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
@@ -25,7 +31,7 @@ public class Show extends Command {
     /**
      * Выводит на экран пользователя все группы
      *
-     * @param args аргумент команды
+     * @param args вводимая в консоль строка
      * @return true - команда выполнена успешно, иначе false
      */
     @Override

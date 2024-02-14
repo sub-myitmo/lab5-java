@@ -11,21 +11,25 @@ import parzival.managers.creators.CreateGroup;
 
 import java.util.Scanner;
 
+/**
+ * Команда add - добавить новый элемент в коллекцию
+ *
+ * @author petrovviacheslav
+ */
 public class Add extends Command{
     /**
-     Менеджер коллекции.
+     * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
-    private Console console;
 
     /**
      * Конструктор класса Add
-     * @param collectionManager менеджер коллекции.
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public Add(CollectionManager collectionManager, Console console) {
         super(console, "add {element}", "добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;
-        this.console = console;
     }
 
     /**

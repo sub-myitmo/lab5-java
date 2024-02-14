@@ -8,10 +8,26 @@ import parzival.managers.Console;
  * @author petrovviacheslav
  */
 public abstract class Command {
+    /**
+     * Консоль для ввода/вывода данных
+     */
     protected final Console console;
+    /**
+     * Название команды
+     */
     private String name;
+    /**
+     * Описание команды
+     */
     private String description;
 
+    /**
+     * Конструктор класса Command
+     *
+     * @param console консоль
+     * @param name название команды
+     * @param description описание команды
+     */
     protected Command(Console console, String name, String description) {
         this.console = console;
         this.name = name;
@@ -28,6 +44,9 @@ public abstract class Command {
 
     /**
      * Вызов команды
+     *
+     * @param args аргумент команды
+     * @return true - команда выполнена успешно, иначе false
      */
     public abstract boolean execute(String[] args);
 

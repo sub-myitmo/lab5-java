@@ -9,27 +9,28 @@ import parzival.models.*;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * Класс для создания группы
+ *
+ * @author petrovviacheslav
+ */
 public class CreateGroup extends BaseCreator<StudyGroup> {
-    private static boolean isScriptRun = false;
+
     private final Console console;
     private Scanner userScanner = InputManager.getUserScanner();
     private final CollectionManager collectionManager;
+    private boolean isScriptRun = StatusScript.getIsScriptRun();
 
+    /**
+     * Конструктор класса CreateGroup
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
+     */
     public CreateGroup(CollectionManager collectionManager, Console console) {
         this.console = console;
         this.collectionManager = collectionManager;
     }
 
-    public static boolean getIsScriptRun() {
-        return isScriptRun;
-    }
-
-    public static void setIsScriptRun() {
-        isScriptRun = true;
-    }
-    public static void deleteIsScriptRun() {
-        isScriptRun = false;
-    }
 
     @Override
     public StudyGroup make() throws IncorrectScriptException, IncorrectInputException {
@@ -49,7 +50,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
 
 
     /**
-     * Функция, спрашивающая у пользователя , которое после приводится к данным типа Long
+     * Функция, спрашивающая у пользователя строку, которая после приводится к данным типа Long
      *
      * @param request запрос того, что требуется ввести
      * @return number - строка приведенная к типу Long
@@ -85,7 +86,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     private String requestName() throws IncorrectScriptException {
         String name;
         while (true) {
-            console.printf("Введите имя учебной группы:");
+            console.printf("Введите имя учебной группы: ");
             try {
                 name = userScanner.nextLine().trim();
 
@@ -105,7 +106,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     }
 
     private Coordinates requestCoordinates() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreateCoordinates(userScanner, console)).make();
+        return (new CreateCoordinates(console)).make();
     }
 
     private Long requestStudentsCount() throws IncorrectScriptException {
@@ -144,12 +145,11 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     }
 
     private Semester requestSemester() throws IncorrectScriptException {
-        return new CreateSemester(collectionManager, userScanner, console).make();
+        return new CreateSemester(console).make();
     }
 
     private Person requestGroupAdmin() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreatePerson(collectionManager, userScanner, console)).make();
+        return (new CreatePerson(console)).make();
     }
-
 
 }

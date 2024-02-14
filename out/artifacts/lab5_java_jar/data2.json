@@ -47,24 +47,24 @@
   },
   {
     "id": 3,
-    "name": "P3101",
+    "name": "11",
     "coordinates": {
-      "x": 2,
-      "y": 3.0
+      "x": 11,
+      "y": 11.0
     },
-    "creationDate": "14/02/2024",
-    "studentsCount": 45,
+    "creationDate": "15/02/2024",
+    "studentsCount": 11,
     "expelledStudents": 11,
-    "transferredStudents": 12,
+    "transferredStudents": 11,
     "semesterEnum": "FIRST",
     "groupAdmin": {
-      "name": "Andrey",
-      "birthday": "2024-02-14T10:35:21.952928",
-      "weight": 3.0,
+      "name": "1fd",
+      "birthday": "1111-11-11T11:11:11.110",
+      "weight": 123.0,
       "location": {
-        "x": 4.0,
-        "y": 6,
-        "z": 7.0
+        "x": 23.0,
+        "y": 23,
+        "z": 45.0
       }
     }
   }

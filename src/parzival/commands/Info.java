@@ -6,14 +6,21 @@ import parzival.managers.Console;
 
 /**
  * Команда info - вывести информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
+ *
+ * @author petrovviacheslav
  */
 public class Info extends Command {
 
+    /**
+     * Менеджер коллекции
+     */
     private final CollectionManager collectionManager;
 
     /**
-     * Конструктор
+     * Конструктор класса Info
+     *
      * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public Info(CollectionManager collectionManager, Console console) {
         super(console, "info", "вывести информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
@@ -22,6 +29,7 @@ public class Info extends Command {
 
     /**
      * Выводит информацию о коллекции
+     *
      * @param args аргумент команды
      * @return true - команда выполнена успешно, иначе false
      */

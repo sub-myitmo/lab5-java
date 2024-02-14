@@ -2,6 +2,7 @@ package parzival.models;
 
 /**
  * Перечисление содержащее номера семестров
+ *
  * @author petrovviacheslav
  */
 public enum Semester {
@@ -11,7 +12,9 @@ public enum Semester {
     EIGHTH;
 
     /**
-     * @return Строка со всеми элементами enum'а через строку
+     * Получить все константы enum'а
+     *
+     * @return строка со всеми элементами enum'а через запятую
      */
     public static String getNames() {
         String listSemester = "";

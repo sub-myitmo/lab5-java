@@ -2,11 +2,13 @@ package parzival.models;
 
 import parzival.managers.CollectionManager;
 import parzival.models.validate.Validatable;
+
 import java.util.Date;
 import java.util.Objects;
 
 /**
  * Класс студенческой группы
+ *
  * @author petrovviacheslav
  */
 public class StudyGroup implements Comparable<StudyGroup>, Validatable {
@@ -23,6 +25,9 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
     private Semester semesterEnum; //Поле может быть null
     private Person groupAdmin; //Поле не может быть null
 
+    /**
+     * Конструктор класса StudyGroup
+     */
     public StudyGroup(String name, Coordinates coordinates, Date creationDate, Long studentsCount, Long expelledStudents, Integer transferredStudents, Semester semesterEnum, Person groupAdmin) {
         this.id = nextId++;
         this.name = name;
@@ -35,16 +40,12 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         this.groupAdmin = groupAdmin;
     }
 
-    public StudyGroup(){}
+    //public StudyGroup(){}
 
-
+    /**
+     * Обновить поле id для верного создания новых StudyGroups
+     */
     public static void updateNextId(CollectionManager collectionManager) {
-//        long maxId = collectionManager
-//                .getStackCollection()
-//                .stream().filter(Objects::nonNull)
-//                .map(StudyGroup::getId)
-//                .mapToLong(Long::longValue).max().orElse(0);
-//
         long maxId = collectionManager
                 .getStackCollection().lastElement().getId();
         nextId = maxId + 1;
@@ -125,7 +126,18 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         return -1;
     }
 
-    // дописать hashCode equals
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, coordinates, creationDate, studentsCount, expelledStudents, transferredStudents, semesterEnum, groupAdmin);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudyGroup studyGroup = (StudyGroup) o;
+        return Objects.equals(name, studyGroup.name) && Objects.equals(coordinates, studyGroup.coordinates) && Objects.equals(creationDate, studyGroup.creationDate) && Objects.equals(studentsCount, studyGroup.studentsCount) && Objects.equals(expelledStudents, studyGroup.expelledStudents) && Objects.equals(transferredStudents, studyGroup.transferredStudents) && Objects.equals(semesterEnum, studyGroup.semesterEnum) && Objects.equals(groupAdmin, studyGroup.groupAdmin);
+    }
 
     @Override
     public String toString() {

@@ -7,6 +7,11 @@ import parzival.models.StudyGroup;
 
 import java.util.*;
 
+/**
+ * Команда print_field_ascending_students_count - вывести значения поля studentsCount всех элементов в порядке возрастания
+ *
+ * @author petrovviacheslav
+ */
 public class PrintFieldAscendingStudentsCount extends Command {
     /**
      * Менеджер коллекции.
@@ -17,6 +22,7 @@ public class PrintFieldAscendingStudentsCount extends Command {
      * Конструктор класса Reorder
      *
      * @param collectionManager менеджер коллекции.
+     * @param console консоль
      */
     public PrintFieldAscendingStudentsCount(CollectionManager collectionManager, Console console) {
         super(console, "print_field_ascending_students_count", "вывести значения поля studentsCount всех элементов в порядке возрастания");
@@ -47,9 +53,9 @@ public class PrintFieldAscendingStudentsCount extends Command {
                 Collections.sort(arrayList);
 
                 console.println("Поля studentsCount: ");
-                String studentsCountInSting = "";
+                StringBuilder studentsCountInSting = new StringBuilder();
                 for (Long studentsCount : arrayList) {
-                    studentsCountInSting += " - " + studentsCount + "\n";
+                    studentsCountInSting.append(" - ").append(studentsCount).append("\n");
                 }
                 console.println(studentsCountInSting.substring(0, studentsCountInSting.length() - 1));
             }

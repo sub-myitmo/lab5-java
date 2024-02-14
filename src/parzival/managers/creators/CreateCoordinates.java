@@ -5,20 +5,30 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+import parzival.managers.InputManager;
+import parzival.managers.StatusScript;
 import parzival.models.Coordinates;
 import parzival.models.StudyGroup;
 
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * Класс для создания координат
+ *
+ * @author petrovviacheslav
+ */
 public class CreateCoordinates extends BaseCreator<Coordinates>{
-    private boolean isScriptRun = CreateGroup.getIsScriptRun();
+    private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner;
+    private Scanner userScanner = InputManager.getUserScanner();;
 
-    public CreateCoordinates(Scanner userScanner, Console console) {
+    /**
+     * Конструктор класса CreateCoordinates
+     * @param console консоль
+     */
+    public CreateCoordinates(Console console) {
         this.console = console;
-        this.userScanner = userScanner;
     }
 
 
@@ -41,7 +51,7 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
     private Integer requestX() throws IncorrectScriptException {
         Integer X;
         while (true) {
-            console.printf("Введинте переменную Х (тип Integer)");
+            console.printf("Введите переменную Х (для Coordinates, тип Integer): ");
             try {
                 String variable = userScanner.nextLine().trim();
 
@@ -68,7 +78,7 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
     private double requestY() throws IncorrectScriptException {
         double Y;
         while (true) {
-            console.printf("Введинте переменную Y (тип double)");
+            console.printf("Введите переменную Y (для Coordinates, тип double): ");
             try {
                 String variable = userScanner.nextLine().trim();
 

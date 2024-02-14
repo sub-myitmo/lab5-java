@@ -4,26 +4,31 @@ import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.*;
 
 /**
- * Записывает коллекцию в файл
+ * Команда save - сохранить коллекцию в файл
  *
  * @author petrovviacheslav
  */
 public class Save extends Command{
     /**
-     Менеджер файлов.
+     * Менеджер файлов
      */
     private final FileManager fileManager;
     /**
-     Менеджер коллекции.
+     * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
+    /**
+     * Менеджер парсинга
+     */
     private final ParseManager parseManager;
 
     /**
-     * Конструктор SaveCommand создает новый объект команды "save".
+     * Конструктор класса Save
      *
-     * @param fileManager объект для работы с файлами.
-     * @param collectionManager объект для работы с коллекцией.
+     * @param fileManager менеджер файлов
+     * @param parseManager менеджер парсинга
+     * @param collectionManager Менеджер коллекции
+     * @param console консоль
      */
     public Save(FileManager fileManager, ParseManager parseManager, CollectionManager collectionManager, Console console) {
         super(console, "save", "сохранить коллекцию в файл");
@@ -35,14 +40,16 @@ public class Save extends Command{
     /**
      * Записывает коллекцию в файл
      *
-     * @param args вводимая в консоль строка
-     * @return true, если выполнение команды прошло успешно, и false, если произошла ошибка.
+     * @param args аргумент команды
+     * @return true - команда выполнена успешно, иначе false
      */
     @Override
     public boolean execute(String[] args) {
         try {
             if(!args[1].isEmpty()) throw new WrongCommandArgsException();
             fileManager.writeToFile("data2.json", parseManager.getJsonFromStack(collectionManager.getStackCollection()));
+
+            console.println("Коллекция была успешно сохранена");
             return true;
         } catch (WrongCommandArgsException e){
             console.println(e.toString());

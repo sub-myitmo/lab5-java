@@ -1,7 +1,9 @@
 package parzival.managers;
 
 /**
- * Класс для для ввода команд и вывода результата
+ * Класс для ввода команд и вывода результата
+ *
+ * @author petrovviacheslav
  */
 public class Console implements Logger{
 

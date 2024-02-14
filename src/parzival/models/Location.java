@@ -2,12 +2,22 @@ package parzival.models;
 
 import parzival.models.validate.Validatable;
 
+import java.util.Objects;
+
+/**
+ * Класс местоположения человека
+ *
+ * @author petrovviacheslav
+ */
 
 public class Location implements Validatable {
     private final Float x; //Поле не может быть null
     private final Integer y; //Поле не может быть null
     private final double z;
 
+    /**
+     * Конструктор класса Location
+     */
     public Location(Float x, Integer y, double z) {
         this.x = x;
         this.y = y;
@@ -26,15 +36,27 @@ public class Location implements Validatable {
         return y;
     }
 
+    @Override
     public boolean validate() {
         if (y == null || x == null) return false;
         return true;
     }
 
-    // дописать hashCode equals
-
     @Override
     public String toString() {
         return "\n\tLocation{" + "\n\t\tx=" + x + ", \n\t\ty=" + y + ", \n\t\tz=" + z + "\n\t}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Objects.equals(x, location.x) && Objects.equals(y, location.y) && Objects.equals(z, location.z);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z);
     }
 }

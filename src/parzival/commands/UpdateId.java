@@ -10,22 +10,26 @@ import parzival.managers.creators.CreateGroup;
 import parzival.models.StudyGroup;
 
 import java.util.Scanner;
-
+/**
+ * Команда update id - обновить значение элемента коллекции, id которого равен заданному
+ *
+ * @author petrovviacheslav
+ */
 public class UpdateId extends Command {
     /**
-     Менеджер коллекции.
+     * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
-    private Console console;
 
     /**
-     * Конструктор класса Add
-     * @param collectionManager менеджер коллекции.
+     * Конструктор класса Show
+     *
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public UpdateId(CollectionManager collectionManager, Console console) {
         super(console, "update id {element}", "обновить значение элемента коллекции, id которого равен заданному");
         this.collectionManager = collectionManager;
-        this.console = console;
     }
 
     /**

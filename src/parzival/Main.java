@@ -55,10 +55,10 @@ public class Main {
             addCommand("update", new UpdateId(collectionManager, console));
         }};
 
-        InputManager inputManager = new InputManager(console, collectionManager, commandManager);
+        InputManager inputManager = new InputManager(console, commandManager);
         InputManager.setUserScanner(userScanner);
 
-        commandManager.addCommand("execute_script", new ExecuteScript(inputManager, fileManager, console));
+        commandManager.addCommand("execute_script", new ExecuteScript(inputManager, console));
         inputManager.interactiveRun();
 
     }

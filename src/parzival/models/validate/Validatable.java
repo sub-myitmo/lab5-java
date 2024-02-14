@@ -5,5 +5,10 @@ package parzival.models.validate;
  * @author petrovviacheslav
  */
 public interface Validatable {
+    /**
+     * Метод для проверки полей моделей
+     *
+     * @return true - если все поля верны, иначе нет
+     */
     boolean validate();
 }

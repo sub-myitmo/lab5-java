@@ -3,7 +3,7 @@ package parzival.models;
 import parzival.models.validate.Validatable;
 
 /**
- * Класс координат
+ * Класс координат группы
  * @author petrovviacheslav
  */
 
@@ -11,6 +11,9 @@ public class Coordinates implements Validatable {
     private final Integer x; //Максимальное значение поля: 265, Поле не может быть null
     private final double y;
 
+    /**
+     * Конструктор класса Location
+     */
     public Coordinates(Integer x, double y) {
         this.x = x;
         this.y = y;
@@ -24,9 +27,9 @@ public class Coordinates implements Validatable {
         return y;
     }
 
+    @Override
     public boolean validate() {
-        if (x > 265 || x == null) return false;
-        return true;
+        return !(x > 265 || x == null);
     }
 
 // дописать hashCode equals

@@ -6,14 +6,34 @@ import java.util.*;
 
 /**
  * Класс для запуска команд и хранения истории
+ *
  * @author petrovviachesalv
  */
 public class CommandManager {
-    private final Map<String, Command> commands = new HashMap<>();
-    //private final TreeMap<String, Command> commands = new TreeMap<>();
+    private Map<String, Command> commands = new HashMap<>();
+    // private final TreeMap<String, Command> commands = new TreeMap<>();
 
-    // private Stack<String> history = new Stack<>();
-    // если надо будет, то можно будет допилить команду history тоже
+    /**
+     * Добавляет команду
+     *
+     * @param commandName название команды.
+     * @param command     команда
+     */
+    public void addCommand(String commandName, Command command) {
+        commands.put(commandName, command);
+    }
+
+    /**
+     * Возвращает словарь команд
+     *
+     * @return словарь команд
+     */
+    public Map<String, Command> getCommands() {
+        return commands;
+    }
+
+//     private Stack<String> history = new Stack<>();
+//     если надо будет, то можно будет допилить команду history тоже
 //    public Stack<String> getHistory() {
 //        return history;
 //    }
@@ -21,25 +41,5 @@ public class CommandManager {
 //    public void addHistory(String command) {
 //        history.add(command);
 //    }
-
-    public CommandManager (){};
-
-    /**
-     * Добавляет команду.
-     * @param commandName Название команды.
-     * @param command Команда.
-     */
-    public void addCommand(String commandName, Command command) {
-        commands.put(commandName, command);
-    }
-
-    /**
-     * @return Словарь команд.
-     */
-    public Map<String, Command> getCommands() {
-        return commands;
-    }
-
-
 
 }

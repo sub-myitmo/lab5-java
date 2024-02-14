@@ -7,6 +7,8 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+import parzival.managers.InputManager;
+import parzival.managers.StatusScript;
 import parzival.managers.adapters.LocalDateTimeAdapter;
 import parzival.models.Coordinates;
 import parzival.models.Location;
@@ -16,17 +18,18 @@ import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-
+/**
+ * Класс для создания человека
+ *
+ * @author petrovviacheslav
+ */
 public class CreatePerson extends BaseCreator<Person> {
-    private boolean isScriptRun = CreateGroup.getIsScriptRun();
+    private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner;
-    private final CollectionManager collectionManager;
+    private Scanner userScanner = InputManager.getUserScanner();
 
-    public CreatePerson(CollectionManager collectionManager, Scanner userScanner, Console console) {
+    public CreatePerson(Console console) {
         this.console = console;
-        this.userScanner = userScanner;
-        this.collectionManager = collectionManager;
     }
 
 
@@ -74,7 +77,6 @@ public class CreatePerson extends BaseCreator<Person> {
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
 
-                //DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
                 birthday = LocalDateTime.parse(variable);
                 break;
 
@@ -120,7 +122,7 @@ public class CreatePerson extends BaseCreator<Person> {
     }
 
     private Location requestLocation() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreateLocation(collectionManager, userScanner, console)).make();
+        return (new CreateLocation(console)).make();
     }
 
 }

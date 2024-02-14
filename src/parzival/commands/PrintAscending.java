@@ -8,15 +8,22 @@ import parzival.models.StudyGroup;
 import java.util.Collections;
 import java.util.Stack;
 
+/**
+ * Команда print_ascending - вывести элементы коллекции в порядке возрастания
+ *
+ * @author petrovviacheslav
+ */
 public class PrintAscending extends Command{
     /**
-     Менеджер коллекции.
+     * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
 
     /**
-     * Конструктор класса Reorder
-     * @param collectionManager менеджер коллекции.
+     * Конструктор класса PrintAscending
+     *
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public PrintAscending(CollectionManager collectionManager, Console console) {
         super(console, "print_ascending", "вывести элементы коллекции в порядке возрастания");
@@ -24,7 +31,7 @@ public class PrintAscending extends Command{
     }
 
     /**
-     * Сортирует коллекцию в обратном порядке
+     * Выводит элементы коллекции в порядке возрастания
      *
      * @param args аргумент команды
      * @return true - команда выполнена успешно, иначе false
@@ -33,11 +40,10 @@ public class PrintAscending extends Command{
     public boolean execute(String[] args) {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
-            Stack<StudyGroup> copyOfStackCollection;
-            copyOfStackCollection = collectionManager.getStackCollection();
+            Stack<StudyGroup> copyOfStackCollection = collectionManager.getStackCollection();
             Collections.sort(copyOfStackCollection);
             for(StudyGroup studyGroup : copyOfStackCollection){
-                console.println(studyGroup.toString() + "\n=====");
+                console.println(studyGroup.toString());
             }
             return true;
         } catch (WrongCommandArgsException e){

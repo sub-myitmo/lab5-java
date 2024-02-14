@@ -6,13 +6,21 @@ import parzival.managers.Console;
 
 /**
  * Команда help - вывести справку по доступным командам
+ *
  * @author petrovviacheslav
  */
 public class Help extends Command {
-
+    /**
+     * Менеджер команд
+     */
     private final CommandManager commandManager;
 
-
+    /**
+     * Конструктор класса Help
+     *
+     * @param commandManager менеджер команд
+     * @param console консоль
+     */
     public Help(CommandManager commandManager, Console console) {
         super(console, "help", "вывести справку по доступным командам");
         this.commandManager = commandManager;

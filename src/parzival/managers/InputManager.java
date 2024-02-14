@@ -11,24 +11,26 @@ import java.util.Scanner;
 
 public class InputManager {
     private final Console console;
-    private final CollectionManager collectionManager;
     private final CommandManager commandManager;
+
     /**
-     * Сканер для чтения пользовательского ввода.
+     * Сканер для чтения пользовательского ввода/ввода из файла
      */
     private static Scanner userScanner;
-    public static final String startInput = "-> ";
+    public final String startInput = "-> ";
+    public final String startInputForScript = "(from script)-> ";
 
-    public InputManager(Console console, CollectionManager collectionManager, CommandManager commandManager) {
+
+    public InputManager(Console console, CommandManager commandManager) {
         this.console = console;
-        this.collectionManager = collectionManager;
         this.commandManager = commandManager;
     }
 
-    public static void setUserScanner(Scanner scanner){
+    public static void setUserScanner(Scanner scanner) {
         userScanner = scanner;
     }
-    public static Scanner getUserScanner(){
+
+    public static Scanner getUserScanner() {
         return userScanner;
     }
 
@@ -36,32 +38,37 @@ public class InputManager {
     /**
      * Запуск скрипта из файла
      */
-    public void scriptRun(String fileName){
+    public void scriptRun(String fileName) {
 
         try {
             String[] scriptCommand;
-            int status;
+            int status = 1;
             Scanner scriptScanner = new Scanner(new File(fileName));
             Scanner oldScanner = userScanner;
             userScanner = scriptScanner;
 
-            CreateGroup.setIsScriptRun();
-            while (userScanner.hasNext()) {
-                console.printf(startInput);
+            StatusScript.setIsScriptRun();
+            while (userScanner.hasNext() && status != 2) {
+
+                console.printf(startInputForScript);
 
                 String gettingString = userScanner.nextLine();
                 scriptCommand = (gettingString.trim() + " ").split(" ", 2);
                 console.println(gettingString);
 
-                status = executeCommand(scricdptCommand);
-            } //while (status != 2);
-            CreateGroup.deleteIsScriptRun();
+                status = executeCommand(scriptCommand);
+            }
+            StatusScript.deleteIsScriptRun();
             userScanner = oldScanner;
-        } catch (FileNotFoundException exception) {
+
+        } catch (
+                FileNotFoundException exception) {
             console.println("Файл со скриптом не найден!");
-        } catch (NoSuchElementException exception) {
+        } catch (
+                NoSuchElementException exception) {
             console.println("Весь файл прочитан!");
-        } catch (IllegalStateException exception) {
+        } catch (
+                IllegalStateException exception) {
             console.println("Непредвиденная ошибка.");
         }
 
@@ -105,8 +112,7 @@ public class InputManager {
         if (userCommand[0].equals("exit")) {
             if (command.execute(userCommand)) return 2;
             else return 1;
-        }
-        else if (!command.execute(userCommand))
+        } else if (!command.execute(userCommand))
             return 1;
         return 0;
 

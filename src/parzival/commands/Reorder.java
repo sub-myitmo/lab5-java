@@ -4,15 +4,22 @@ import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 
+/**
+ * Команда reorder - отсортировать коллекцию в порядке, обратном нынешнему
+ *
+ * @author petrovviacheslav
+ */
 public class Reorder extends Command{
     /**
-     Менеджер коллекции.
+     * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
 
     /**
      * Конструктор класса Reorder
-     * @param collectionManager менеджер коллекции.
+     *
+     * @param collectionManager менеджер коллекции
+     * @param console консоль
      */
     public Reorder(CollectionManager collectionManager, Console console) {
         super(console, "reorder", "отсортировать коллекцию в порядке, обратном нынешнему");

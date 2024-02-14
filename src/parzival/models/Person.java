@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * Класс человека
+ *
  * @author petrovviacheslav
  */
 
@@ -16,6 +17,9 @@ public class Person implements Validatable {
     private double weight; //Значение поля должно быть больше 0
     private Location location; //Поле не может быть null
 
+    /**
+     * Конструктор класса Person
+     */
     public Person(String name, LocalDateTime birthday, double weight, Location location) {
         this.name = name;
         this.birthday = birthday;
