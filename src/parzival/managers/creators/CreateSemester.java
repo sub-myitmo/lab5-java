@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class CreateSemester extends BaseCreator<Semester> {
     private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner = InputManager.getUserScanner();
+    private Scanner usedScanner = InputManager.getUsedScanner();
 
     public CreateSemester(Console console) {
         this.console = console;
@@ -32,7 +32,7 @@ public class CreateSemester extends BaseCreator<Semester> {
             console.println("Список номеров семестров - " + Semester.getNames());
             console.printf("Введите нужный семестр: ");
             try {
-                String strSemester = userScanner.nextLine().trim();
+                String strSemester = usedScanner.nextLine().trim();
 
                 if (isScriptRun) console.println(strSemester);
 

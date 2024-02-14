@@ -1,5 +1,10 @@
 package parzival.managers;
 
+/**
+ * Интерфейс для консоли
+ *
+ * @author petrovviacheslav
+ */
 public interface Logger {
     void println(String text);
 

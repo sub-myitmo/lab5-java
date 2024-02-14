@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class CreatePerson extends BaseCreator<Person> {
     private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner = InputManager.getUserScanner();
+    private Scanner usedScanner = InputManager.getUsedScanner();
 
     public CreatePerson(Console console) {
         this.console = console;
@@ -50,7 +50,7 @@ public class CreatePerson extends BaseCreator<Person> {
         while (true) {
             console.printf("Введите имя админа группы:");
             try {
-                name = userScanner.nextLine().trim();
+                name = usedScanner.nextLine().trim();
 
                 if (name.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(name);
@@ -72,7 +72,7 @@ public class CreatePerson extends BaseCreator<Person> {
         while (true) {
             console.printf("Введите день рождения (тип LocalDateTime yyyy-MM-ddTHH:mm:ss): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
@@ -99,7 +99,7 @@ public class CreatePerson extends BaseCreator<Person> {
         while (true) {
             console.printf("Введите вес (тип double): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);

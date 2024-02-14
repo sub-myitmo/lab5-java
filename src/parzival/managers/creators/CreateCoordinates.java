@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class CreateCoordinates extends BaseCreator<Coordinates>{
     private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner = InputManager.getUserScanner();;
+    private Scanner usedScanner = InputManager.getUsedScanner();;
 
     /**
      * Конструктор класса CreateCoordinates
@@ -53,7 +53,7 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
         while (true) {
             console.printf("Введите переменную Х (для Coordinates, тип Integer): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
@@ -80,7 +80,7 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
         while (true) {
             console.printf("Введите переменную Y (для Coordinates, тип double): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);

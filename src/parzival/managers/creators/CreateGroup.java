@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class CreateGroup extends BaseCreator<StudyGroup> {
 
     private final Console console;
-    private Scanner userScanner = InputManager.getUserScanner();
+    private Scanner usedScanner = InputManager.getUsedScanner();
     private final CollectionManager collectionManager;
     private boolean isScriptRun = StatusScript.getIsScriptRun();
 
@@ -61,7 +61,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
         while (true) {
             console.printf(request);
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
@@ -88,7 +88,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
         while (true) {
             console.printf("Введите имя учебной группы: ");
             try {
-                name = userScanner.nextLine().trim();
+                name = usedScanner.nextLine().trim();
 
                 if (name.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(name);
@@ -122,7 +122,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
         while (true) {
             console.printf("Введите количество переведённых студентов в учебной группе: ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);

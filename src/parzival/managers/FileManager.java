@@ -46,7 +46,7 @@ public class FileManager {
      * Запись текста в файл
      *
      * @param fileName имя файла
-     * @param collection коллекция для файла
+     * @param text текст для файла
      */
     public void writeToFile(String fileName, String text) {
         try {
@@ -64,7 +64,7 @@ public class FileManager {
      *
      * @return имя файла
      */
-    public String getName() {
+    public static String getName() {
         path = System.getenv("LAB5_DATA");
         return path;
     }

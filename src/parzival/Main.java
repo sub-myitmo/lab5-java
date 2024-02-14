@@ -15,17 +15,16 @@ public class Main {
 
         System.out.println("Приветствую!\nЧтение данных и запуск консольного приложения ...");
 
-        Console console = new Console();
-
-        FileManager fileManager = new FileManager(console);
-
-        String fileName = fileManager.getName();
+        String fileName = FileManager.getName();
 
         //System.out.println(System.getenv());
         //String fileName = "data.json";
 
+        Console console = new Console();
+        FileManager fileManager = new FileManager(console);
+
         if (fileName == null) {
-            System.out.println("Запуск с переменной окружения 'LAB5_DATA'!");
+            System.out.println("У вас отсутствует переменная окружения 'LAB5_DATA'!");
             System.exit(0);
         }
         ParseManager parseManager = new ParseManager(console);
@@ -56,7 +55,7 @@ public class Main {
         }};
 
         InputManager inputManager = new InputManager(console, commandManager);
-        InputManager.setUserScanner(userScanner);
+        InputManager.setUsedScanner(userScanner);
 
         commandManager.addCommand("execute_script", new ExecuteScript(inputManager, console));
         inputManager.interactiveRun();

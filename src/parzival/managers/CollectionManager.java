@@ -28,7 +28,8 @@ public class CollectionManager {
     }
 
     /**
-     * Устанавливает коллекцию групп
+     * Получает коллекцию групп
+     *
      * @return stackCollection коллекция групп
      */
     public Stack<StudyGroup> getStackCollection() {
@@ -37,6 +38,7 @@ public class CollectionManager {
 
     /**
      * Устанавливает коллекцию групп
+     *
      * @param stackCollection коллекция групп
      */
     public void setCollection(Stack<StudyGroup> stackCollection) {
@@ -71,8 +73,6 @@ public class CollectionManager {
         stackCollection.remove(stackCollection.firstElement());
     }
 
-
-
     /**
      * Удаляет группу из коллекции
      */
@@ -93,6 +93,7 @@ public class CollectionManager {
     public int getSizeCollection(){
         return stackCollection.size();
     }
+
     /**
      * Очистка коллекции
      */
@@ -127,6 +128,10 @@ public class CollectionManager {
     public void addElementToCollection(StudyGroup studyGroup){
         stackCollection.add(studyGroup);
     }
+
+    /**
+     * Метод обновляет элемент коллекции
+     */
     public void updateElement(StudyGroup oldStudyGroup, StudyGroup newStudyGroup){
         oldStudyGroup.update(newStudyGroup);
     }

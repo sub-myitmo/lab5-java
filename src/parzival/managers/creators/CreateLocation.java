@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class CreateLocation extends BaseCreator<Location>{
     private boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner userScanner = InputManager.getUserScanner();
+    private Scanner usedScanner = InputManager.getUsedScanner();
 
     public CreateLocation(Console console) {
         this.console = console;
@@ -50,7 +50,7 @@ public class CreateLocation extends BaseCreator<Location>{
         while (true) {
             console.printf("Введите переменную Х (для Location, тип Float): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
@@ -83,7 +83,7 @@ public class CreateLocation extends BaseCreator<Location>{
         while (true) {
             console.printf("Введите переменную Y (для Location, тип Integer): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
@@ -110,7 +110,7 @@ public class CreateLocation extends BaseCreator<Location>{
         while (true) {
             console.printf("Введите переменную Z (для Location, тип double): ");
             try {
-                String variable = userScanner.nextLine().trim();
+                String variable = usedScanner.nextLine().trim();
 
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
