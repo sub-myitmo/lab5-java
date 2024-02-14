@@ -57,6 +57,9 @@ public class CreateLocation extends BaseCreator<Location>{
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
+            } catch (NumberFormatException e){
+                console.println("Надо ввести число!");
+                if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
                 console.println("Непредвиденная ошибка!");
                 System.exit(0);
@@ -74,7 +77,7 @@ public class CreateLocation extends BaseCreator<Location>{
     private Integer requestY() throws IncorrectScriptException {
         Integer Y;
         while (true) {
-            console.printf("Введинте переменную Х (тип Integer)");
+            console.printf("Введинте переменную Y (тип Integer): ");
             try {
                 String variable = userScanner.nextLine().trim();
 
@@ -84,6 +87,9 @@ public class CreateLocation extends BaseCreator<Location>{
                 Y = Integer.parseInt(variable);
                 break;
 
+            } catch (NumberFormatException e){
+                console.println("Надо ввести число!");
+                if (isScriptRun) throw new IncorrectScriptException();
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();

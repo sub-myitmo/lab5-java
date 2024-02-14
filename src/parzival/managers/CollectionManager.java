@@ -41,6 +41,7 @@ public class CollectionManager {
      */
     public void setCollection(Stack<StudyGroup> stackCollection) {
         this.stackCollection = stackCollection;
+
     }
 
 

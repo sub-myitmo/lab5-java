@@ -54,6 +54,9 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
+            } catch (NumberFormatException e){
+                console.println("Надо ввести число!");
+                if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
                 console.println("Непредвиденная ошибка!");
                 System.exit(0);
@@ -75,6 +78,9 @@ public class CreateCoordinates extends BaseCreator<Coordinates>{
                 Y = Double.parseDouble(variable);
                 break;
 
+            } catch (NumberFormatException e){
+                console.println("Надо ввести число!");
+                if (isScriptRun) throw new IncorrectScriptException();
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();

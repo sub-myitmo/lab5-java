@@ -5,9 +5,7 @@ import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.models.StudyGroup;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
 
 public class PrintFieldAscendingStudentsCount extends Command {
     /**
@@ -39,19 +37,18 @@ public class PrintFieldAscendingStudentsCount extends Command {
             if (collectionManager.getStackCollection().isEmpty()) {
                 console.println("Коллекция пуста!");
             } else {
-                ArrayList<Long> arrayStudentsCount = new ArrayList<>();
+                Set<Long> setStudentsCount = new HashSet<>();
 
                 for (StudyGroup studyGroup : collectionManager.getStackCollection()) {
-                    if (!arrayStudentsCount.contains(studyGroup.getStudentsCount())) {
-                        arrayStudentsCount.add(studyGroup.getStudentsCount());
-                    }
+                    setStudentsCount.add(studyGroup.getStudentsCount());
                 }
 
-                Collections.sort(arrayStudentsCount);
+                ArrayList<Long> arrayList = new ArrayList<>(setStudentsCount);
+                Collections.sort(arrayList);
 
                 console.println("Поля studentsCount: ");
                 String studentsCountInSting = "";
-                for (Long studentsCount : arrayStudentsCount) {
+                for (Long studentsCount : arrayList) {
                     studentsCountInSting += " - " + studentsCount + "\n";
                 }
                 console.println(studentsCountInSting.substring(0, studentsCountInSting.length() - 1));

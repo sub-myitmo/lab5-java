@@ -10,20 +10,25 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class CreateGroup extends BaseCreator<StudyGroup> {
-    private static boolean isScriptRun;
+    private static boolean isScriptRun = false;
     private final Console console;
-    private Scanner userScanner;
+    private Scanner userScanner = InputManager.getUserScanner();
     private final CollectionManager collectionManager;
 
-    public CreateGroup(CollectionManager collectionManager, Scanner userScanner, Console console) {
+    public CreateGroup(CollectionManager collectionManager, Console console) {
         this.console = console;
-        this.userScanner = userScanner;
         this.collectionManager = collectionManager;
-        isScriptRun = false;
     }
 
     public static boolean getIsScriptRun() {
         return isScriptRun;
+    }
+
+    public static void setIsScriptRun() {
+        isScriptRun = true;
+    }
+    public static void deleteIsScriptRun() {
+        isScriptRun = false;
     }
 
     @Override
@@ -44,13 +49,13 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
 
 
     /**
-     * Функция, спрашивающая у пользователя , которрое после приведится к данным типа Long
+     * Функция, спрашивающая у пользователя , которое после приводится к данным типа Long
      *
      * @param request запрос того, что требуется ввести
-     * @return number - переменная от пользователя
+     * @return number - строка приведенная к типу Long
      * @throws IncorrectScriptException если при чтении скрипта возникла ошибка
      */
-    private Long requestNumberField(String request) throws IncorrectScriptException {
+    private Long requestLongField(String request) throws IncorrectScriptException {
         Long number;
         while (true) {
             console.printf(request);
@@ -65,6 +70,9 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
 
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
+                if (isScriptRun) throw new IncorrectScriptException();
+            } catch (NumberFormatException e) {
+                console.println("Надо ввести число в формате Long!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
                 console.println("Непредвиденная ошибка!");
@@ -101,15 +109,38 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     }
 
     private Long requestStudentsCount() throws IncorrectScriptException {
-        return requestNumberField("Введите количество студентов в учебной группе: ");
+        return requestLongField("Введите количество студентов в учебной группе: ");
     }
 
     private Long requestExpelledStudents() throws IncorrectScriptException {
-        return requestNumberField("Введите количество отчисленных студентов в учебной группе: ");
+        return requestLongField("Введите количество отчисленных студентов в учебной группе: ");
     }
 
     private Integer requestTransferredStudents() throws IncorrectScriptException {
-        return requestNumberField("Введите количество переведённых студентов в учебной группе: ").intValue();
+        Integer transferredStudents;
+        while (true) {
+            console.printf("Введите количество переведённых студентов в учебной группе: ");
+            try {
+                String variable = userScanner.nextLine().trim();
+
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
+                if (isScriptRun) console.println(variable);
+
+                transferredStudents = Integer.parseInt(variable);
+                break;
+
+            } catch (MustBeNotEmptyException e) {
+                console.println(e.toString());
+                if (isScriptRun) throw new IncorrectScriptException();
+            } catch (NumberFormatException e) {
+                console.println("Надо ввести число в формате Integer!");
+                if (isScriptRun) throw new IncorrectScriptException();
+            } catch (IllegalStateException e) {
+                console.println("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return transferredStudents;
     }
 
     private Semester requestSemester() throws IncorrectScriptException {

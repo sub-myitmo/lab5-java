@@ -25,7 +25,7 @@ public class ParseManager {
     }
 
     /**
-     * Получает из стек групп из json-строки
+     * Получает стек групп из json-строки
      */
     public Stack<StudyGroup> getStackFromJson(String json) {
         try {
@@ -34,6 +34,7 @@ public class ParseManager {
                 Type collectionType = new TypeToken<Stack<StudyGroup>>() {
                 }.getType();
                 studyGroups = gson.fromJson(json, collectionType);
+
             }
             return studyGroups;
         } catch (Exception e) {

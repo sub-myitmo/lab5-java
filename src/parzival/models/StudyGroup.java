@@ -1,14 +1,17 @@
 package parzival.models;
 
+import parzival.managers.CollectionManager;
 import parzival.models.validate.Validatable;
 import java.util.Date;
+import java.util.Objects;
+
 /**
  * Класс студенческой группы
  * @author petrovviacheslav
  */
 public class StudyGroup implements Comparable<StudyGroup>, Validatable {
 
-    private static int nextId = 1; // id для новой группы
+    private static long nextId = 1; // id для новой группы
 
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -33,6 +36,19 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
     }
 
     public StudyGroup(){}
+
+
+    public static void updateNextId(CollectionManager collectionManager) {
+//        long maxId = collectionManager
+//                .getStackCollection()
+//                .stream().filter(Objects::nonNull)
+//                .map(StudyGroup::getId)
+//                .mapToLong(Long::longValue).max().orElse(0);
+//
+        long maxId = collectionManager
+                .getStackCollection().lastElement().getId();
+        nextId = maxId + 1;
+    }
 
     public long getId() {
         return id;

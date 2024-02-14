@@ -9,6 +9,7 @@ import parzival.models.Semester;
 import parzival.models.StudyGroup;
 
 import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class CreateSemester extends BaseCreator<Semester>{
@@ -32,16 +33,18 @@ public class CreateSemester extends BaseCreator<Semester>{
             try {
                 String strSemester = userScanner.nextLine().trim();
 
-                if (strSemester.isEmpty()) throw new MustBeNotEmptyException();
                 if(isScriptRun) console.println(strSemester);
 
                 semester = Semester.valueOf(strSemester.toUpperCase());
                 break;
 
-            } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+            } catch (NoSuchElementException exception) {
+                console.println("Тип организации не распознан!");
                 if (isScriptRun) throw new IncorrectScriptException();
-            }  catch (IllegalStateException e) {
+            } catch (IllegalArgumentException exception) {
+                console.println("Типа организации нет в списке!");
+                if (isScriptRun) throw new IncorrectScriptException();
+            } catch (IllegalStateException e) {
                 console.println("Непредвиденная ошибка!");
                 System.exit(0);
             }

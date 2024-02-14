@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "name": "P3108",
+    "coordinates": {
+      "x": 56,
+      "y": 65.0
+    },
+    "creationDate": "26/12/2014",
+    "studentsCount": 100,
+    "expelledStudents": 50,
+    "transferredStudents": 5,
+    "semesterEnum": "THIRD",
+    "groupAdmin": {
+      "name": "Slava",
+      "birthday": "2023-03-11T02:50:42.568977200",
+      "weight": 70.15,
+      "location": {
+        "x": 1.2,
+        "y": 1,
+        "z": 1.134
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "P3101",
+    "coordinates": {
+      "x": 56,
+      "y": 65.0
+    },
+    "creationDate": "26/12/2014",
+    "studentsCount": 300,
+    "expelledStudents": 50,
+    "transferredStudents": 5,
+    "semesterEnum": "THIRD",
+    "groupAdmin": {
+      "name": "вовововово",
+      "birthday": "2023-03-11T02:50:42.568977200",
+      "weight": 70.15,
+      "location": {
+        "x": 1.2,
+        "y": 1,
+        "z": 1.134
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "P3101",
+    "coordinates": {
+      "x": 2,
+      "y": 3.0
+    },
+    "creationDate": "14/02/2024",
+    "studentsCount": 45,
+    "expelledStudents": 11,
+    "transferredStudents": 12,
+    "semesterEnum": "FIRST",
+    "groupAdmin": {
+      "name": "Andrey",
+      "birthday": "2024-02-14T10:35:21.952928",
+      "weight": 3.0,
+      "location": {
+        "x": 4.0,
+        "y": 6,
+        "z": 7.0
+      }
+    }
+  }
+]

@@ -2,7 +2,10 @@ package parzival.managers;
 
 
 import parzival.commands.Command;
+import parzival.managers.creators.CreateGroup;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -13,15 +16,56 @@ public class InputManager {
     /**
      * Сканер для чтения пользовательского ввода.
      */
-    private final Scanner userScanner;
-
+    private static Scanner userScanner;
     public static final String startInput = "-> ";
 
-    public InputManager(Console console, CollectionManager collectionManager, CommandManager commandManager, Scanner userScanner) {
+    public InputManager(Console console, CollectionManager collectionManager, CommandManager commandManager) {
         this.console = console;
         this.collectionManager = collectionManager;
         this.commandManager = commandManager;
-        this.userScanner = userScanner;
+    }
+
+    public static void setUserScanner(Scanner scanner){
+        userScanner = scanner;
+    }
+    public static Scanner getUserScanner(){
+        return userScanner;
+    }
+
+
+    /**
+     * Запуск скрипта из файла
+     */
+    public void scriptRun(String fileName){
+
+        try {
+            String[] scriptCommand;
+            int status;
+            Scanner scriptScanner = new Scanner(new File(fileName));
+            Scanner oldScanner = userScanner;
+            userScanner = scriptScanner;
+
+            CreateGroup.setIsScriptRun();
+            while (userScanner.hasNext()) {
+                console.printf(startInput);
+
+                String gettingString = userScanner.nextLine();
+                scriptCommand = (gettingString.trim() + " ").split(" ", 2);
+                console.println(gettingString);
+
+                status = executeCommand(scricdptCommand);
+            } //while (status != 2);
+            CreateGroup.deleteIsScriptRun();
+            userScanner = oldScanner;
+        } catch (FileNotFoundException exception) {
+            console.println("Файл со скриптом не найден!");
+        } catch (NoSuchElementException exception) {
+            console.println("Весь файл прочитан!");
+        } catch (IllegalStateException exception) {
+            console.println("Непредвиденная ошибка.");
+        }
+
+
     }
 
     /**
@@ -39,9 +83,9 @@ public class InputManager {
                 status = executeCommand(userCommand);
             } while (status != 2);
         } catch (NoSuchElementException exception) {
-            console.println("Работа программы прекращена.");
+            console.println("Работа программы прекращена!");
         } catch (IllegalStateException exception) {
-            console.println("Непредвиденная ошибка.");
+            console.println("Непредвиденная ошибка!");
         }
 
     }

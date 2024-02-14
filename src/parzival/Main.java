@@ -33,6 +33,8 @@ public class Main {
 
         CollectionManager collectionManager = new CollectionManager();
         collectionManager.setCollection(startStack);
+        StudyGroup.updateNextId(collectionManager);
+
 
         Scanner userScanner = new Scanner(System.in);
 
@@ -49,10 +51,14 @@ public class Main {
             addCommand("print_ascending", new PrintAscending(collectionManager, console));
             addCommand("print_field_ascending_students_count", new PrintFieldAscendingStudentsCount(collectionManager, console));
             addCommand("save", new Save(fileManager, parseManager, collectionManager, console));
-            addCommand("add {element}", new Add(collectionManager, userScanner, console));
+            addCommand("add", new Add(collectionManager, console));
+            addCommand("update", new UpdateId(collectionManager, console));
         }};
 
-        InputManager inputManager = new InputManager(console, collectionManager, commandManager, userScanner);
+        InputManager inputManager = new InputManager(console, collectionManager, commandManager);
+        InputManager.setUserScanner(userScanner);
+
+        commandManager.addCommand("execute_script", new ExecuteScript(inputManager, fileManager, console));
         inputManager.interactiveRun();
 
     }
