@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 /**
  * Класс InputManager для обработки ввода и запуска режимов работы
+ *
+ * @author petrovviacheslav
  */
 public class InputManager {
     private final Console console;
@@ -20,8 +22,8 @@ public class InputManager {
      * Сканер для чтения пользовательского ввода/ввода из файла
      */
     private static Scanner usedScanner;
-    public final String startInput = "-> ";
-    public final String startInputForScript = "(from script)-> ";
+//    private final String startInput = "-> ";
+//    private final String startInputForScript = "(from script)-> ";
 
 
     public InputManager(Console console, CommandManager commandManager) {
@@ -29,10 +31,20 @@ public class InputManager {
         this.commandManager = commandManager;
     }
 
+    /**
+     * Установить новый сканер
+     *
+     * @param scanner  новый сканер для использования
+     */
     public static void setUsedScanner(Scanner scanner) {
         usedScanner = scanner;
     }
 
+    /**
+     * Получить используемый сейчас сканер
+     *
+     * @return используемый сейчас сканер
+     */
     public static Scanner getUsedScanner() {
         return usedScanner;
     }
@@ -40,6 +52,8 @@ public class InputManager {
 
     /**
      * Запуск скрипта из файла
+     *
+     * @param fileName путь до файла со скриптом
      */
     public void scriptRun(String fileName) {
 
@@ -53,7 +67,7 @@ public class InputManager {
             StatusScript.setIsScriptRun();
             while (usedScanner.hasNext() && status != 2) {
 
-                console.printf(startInputForScript);
+                console.printf("(from script)-> ");
 
                 String gettingString = usedScanner.nextLine();
                 scriptCommand = (gettingString.trim() + " ").split(" ", 2);
@@ -86,7 +100,7 @@ public class InputManager {
             String[] userCommand;
             int status;
             do {
-                console.printf(startInput);
+                console.printf("-> ");
 
                 userCommand = (usedScanner.nextLine().trim() + " ").split(" ", 2);
 

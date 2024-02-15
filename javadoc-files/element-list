@@ -1,0 +1,8 @@
+parzival
+parzival.commands
+parzival.exceptions
+parzival.managers
+parzival.managers.adapters
+parzival.managers.creators
+parzival.models
+parzival.models.validate

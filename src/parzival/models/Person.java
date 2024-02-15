@@ -27,18 +27,38 @@ public class Person implements Validatable {
         this.location = location;
     }
 
+    /**
+     * Получить имя
+     *
+     * @return имя
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Получить дату рождения
+     *
+     * @return дата рождения
+     */
     public LocalDateTime getBirthday() {
         return birthday;
     }
 
+    /**
+     * Получить вес
+     *
+     * @return вес
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Получить местоположение
+     *
+     * @return местоположение
+     */
     public Location getLocation() {
         return location;
     }

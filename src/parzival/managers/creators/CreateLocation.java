@@ -23,6 +23,11 @@ public class CreateLocation extends BaseCreator<Location>{
     private final Console console;
     private Scanner usedScanner = InputManager.getUsedScanner();
 
+    /**
+     * Конструктор класса CreateLocation
+     *
+     * @param console           консоль
+     */
     public CreateLocation(Console console) {
         this.console = console;
     }

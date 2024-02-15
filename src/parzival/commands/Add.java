@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  * @author petrovviacheslav
  */
-public class Add extends Command{
+public class Add extends Command {
     /**
      * Менеджер коллекции
      */
@@ -24,8 +24,9 @@ public class Add extends Command{
 
     /**
      * Конструктор класса Add
+     *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Add(CollectionManager collectionManager, Console console) {
         super(console, "add {element}", "добавить новый элемент в коллекцию");
@@ -40,15 +41,15 @@ public class Add extends Command{
      */
     @Override
     public boolean execute(String[] args) {
-        try{
-            if(!args[1].isEmpty()) throw new WrongCommandArgsException();
+        try {
+            if (!args[1].isEmpty()) throw new WrongCommandArgsException();
 
             collectionManager.addElementToCollection((new CreateGroup(collectionManager, console)).make());
 
             console.println("Группа была создана успешно");
             return true;
 
-        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException e){
+        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException e) {
             console.println(e.toString());
             return false;
         }

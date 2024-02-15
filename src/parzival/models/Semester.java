@@ -6,9 +6,21 @@ package parzival.models;
  * @author petrovviacheslav
  */
 public enum Semester {
+    /**
+     * первый
+     */
     FIRST,
+    /**
+     * третий
+     */
     THIRD,
+    /**
+     * четвертый
+     */
     FOURTH,
+    /**
+     * восьмой
+     */
     EIGHTH;
 
     /**

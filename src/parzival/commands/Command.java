@@ -34,10 +34,20 @@ public abstract class Command {
         this.description = description;
     }
 
+    /**
+     * Получить название команды
+     *
+     * @return название команды
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Получить описание команды
+     *
+     * @return описание команды
+     */
     public String getDescription() {
         return description;
     }

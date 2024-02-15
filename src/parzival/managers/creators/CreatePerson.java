@@ -28,6 +28,11 @@ public class CreatePerson extends BaseCreator<Person> {
     private final Console console;
     private Scanner usedScanner = InputManager.getUsedScanner();
 
+    /**
+     * Конструктор класса CreatePerson
+     *
+     * @param console           консоль
+     */
     public CreatePerson(Console console) {
         this.console = console;
     }

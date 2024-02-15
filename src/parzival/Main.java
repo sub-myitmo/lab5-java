@@ -9,8 +9,18 @@ import parzival.models.StudyGroup;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * Главный класс приложения, он запускается в первую очередь
+ *
+ * @author petrovviacheslav
+ */
 public class Main {
 
+    /**
+     * Главный класс приложения, он запускается в первую очередь
+     *
+     * @param args аргументы запуска
+     */
     public static void main(String[] args) {
 
         System.out.println("Приветствую!\nЧтение данных и запуск консольного приложения ...");

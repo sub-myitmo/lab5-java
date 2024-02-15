@@ -18,11 +18,19 @@ public class CollectionManager {
     private Stack<StudyGroup> stackCollection;
     private final Date creationDate;
 
+    /**
+     * Конструктор класса CollectionManager
+     */
     public CollectionManager() {
         stackCollection = new Stack<>();
         creationDate = new Date();
     }
 
+    /**
+     * Получает время создания группы
+     *
+     * @return время создания
+     */
     public Date getCreationDate() {
         return creationDate;
     }
@@ -49,6 +57,8 @@ public class CollectionManager {
 
     /**
      * Выводит информацию о коллекции
+     *
+     * @param console консоль
      */
     public void printInfoAboutCollection(Console console) {
         console.println("Тип данных: " + stackCollection.getClass().getName());
@@ -58,6 +68,9 @@ public class CollectionManager {
 
     /**
      * Возвращает группу по id
+     *
+     * @param id id элемента коллекции
+     * @return элемент коллекции
      */
     public StudyGroup getById(long id){
         for (StudyGroup studyGroup: stackCollection) {
@@ -75,6 +88,8 @@ public class CollectionManager {
 
     /**
      * Удаляет группу из коллекции
+     *
+     * @param elem удаляемая группа
      */
     public void removeGroup(StudyGroup elem){
         stackCollection.remove(elem);
@@ -89,6 +104,8 @@ public class CollectionManager {
 
     /**
      * Возвращает размер коллекции
+     *
+     * @return размер коллекции
      */
     public int getSizeCollection(){
         return stackCollection.size();
@@ -103,6 +120,8 @@ public class CollectionManager {
 
     /**
      * Вывод элементов коллекции
+     *
+     * @param console консоль
      */
     public void printAllElements(Console console) {
         if (stackCollection.isEmpty()) {
@@ -124,6 +143,8 @@ public class CollectionManager {
 
     /**
      * Метод добавляет новую группу в коллекцию
+     *
+     * @param studyGroup добавляемая группа
      */
     public void addElementToCollection(StudyGroup studyGroup){
         stackCollection.add(studyGroup);
@@ -131,6 +152,9 @@ public class CollectionManager {
 
     /**
      * Метод обновляет элемент коллекции
+     *
+     * @param oldStudyGroup старая группа, которая будет заменена
+     * @param newStudyGroup новая группа
      */
     public void updateElement(StudyGroup oldStudyGroup, StudyGroup newStudyGroup){
         oldStudyGroup.update(newStudyGroup);

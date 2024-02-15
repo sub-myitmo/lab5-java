@@ -44,6 +44,8 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
 
     /**
      * Обновить поле id для верного создания новых StudyGroups
+     *
+     * @param collectionManager менеджер коллекции
      */
     public static void updateNextId(CollectionManager collectionManager) {
         long maxId = collectionManager
@@ -51,38 +53,83 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         nextId = maxId + 1;
     }
 
+    /**
+     * Получить id
+     *
+     * @return id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Получить имя
+     *
+     * @return имя
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Получить координаты
+     *
+     * @return координаты
+     */
     public Coordinates getCoordinates() {
         return coordinates;
     }
 
+    /**
+     * Получить дату создания
+     *
+     * @return дата создания
+     */
     public Date getCreationDate() {
         return creationDate;
     }
 
+    /**
+     * Получить количество студентов
+     *
+     * @return количество студентов
+     */
     public Long getStudentsCount() {
         return studentsCount;
     }
 
+    /**
+     * Получить количество отчисленных студентов
+     *
+     * @return количество отчисленных студентов
+     */
     public Long getExpelledStudents() {
         return expelledStudents;
     }
 
+    /**
+     * Получить количество переведённых студентов
+     *
+     * @return количество переведённых студентов
+     */
     public Integer getTransferredStudents() {
         return transferredStudents;
     }
 
+    /**
+     * Получить номер семестра в качестве enum'а
+     *
+     * @return номер семестра в качестве enum'а
+     */
     public Semester getSemesterEnum() {
         return semesterEnum;
     }
 
+    /**
+     * Получить админа группы
+     *
+     * @return админ группы
+     */
     public Person getGroupAdmin() {
         return groupAdmin;
     }
@@ -102,6 +149,11 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         return coordinates.validate() && groupAdmin.validate();
     }
 
+    /**
+     * Обновить состояние всех полей группы
+     *
+     * @param studyGroup  группа, поля которой присваиваются к группе this
+     */
     public void update(StudyGroup studyGroup) {
         this.name = studyGroup.name;
         this.coordinates = studyGroup.coordinates;

@@ -11,9 +11,17 @@ import java.util.Stack;
  * Класс FileManager для записи коллекции в файл и чтение из файла
  */
 public class FileManager {
+    /**
+     * Переменная хранящая путь до начального файла .json
+     */
     public static String path;
     private Console console;
 
+    /**
+     * Конструктор класса CreateSemester
+     *
+     * @param console           консоль
+     */
     public FileManager(Console console){
         this.console = console;
     }

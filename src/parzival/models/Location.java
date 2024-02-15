@@ -17,6 +17,10 @@ public class Location implements Validatable {
 
     /**
      * Конструктор класса Location
+     *
+     * @param x координата x
+     * @param y координата y
+     * @param z координата z
      */
     public Location(Float x, Integer y, double z) {
         this.x = x;
@@ -24,14 +28,29 @@ public class Location implements Validatable {
         this.z = z;
     }
 
+    /**
+     * Получить координату x
+     *
+     * @return координата x
+     */
     public Float getX() {
         return x;
     }
 
+    /**
+     * Получить координату y
+     *
+     * @return координата y
+     */
     public Integer getY() {
         return y;
     }
 
+    /**
+     * Получить координату z
+     *
+     * @return координата z
+     */
     public double getZ() {
         return y;
     }

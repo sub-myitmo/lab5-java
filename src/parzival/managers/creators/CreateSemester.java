@@ -21,6 +21,11 @@ public class CreateSemester extends BaseCreator<Semester> {
     private final Console console;
     private Scanner usedScanner = InputManager.getUsedScanner();
 
+    /**
+     * Конструктор класса CreateSemester
+     *
+     * @param console           консоль
+     */
     public CreateSemester(Console console) {
         this.console = console;
     }
