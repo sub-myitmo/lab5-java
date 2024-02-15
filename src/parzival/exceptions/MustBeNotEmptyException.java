@@ -5,7 +5,7 @@ package parzival.exceptions;
  *
  * @author petrovviacheslav
  */
-public class MustBeNotEmptyException extends Exception{
+public class MustBeNotEmptyException extends Exception {
     @Override
     public String toString() {
         return "Поле не может быть пустым!";

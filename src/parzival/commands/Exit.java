@@ -1,7 +1,6 @@
 package parzival.commands;
 
 import parzival.exceptions.WrongCommandArgsException;
-import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.managers.StatusScript;
 
@@ -10,7 +9,7 @@ import parzival.managers.StatusScript;
  *
  * @author petrovviacheslav
  */
-public class Exit extends Command{
+public class Exit extends Command {
 
     /**
      * Конструктор класса Exit
@@ -32,12 +31,12 @@ public class Exit extends Command{
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
 
-            if (StatusScript.getIsScriptRun()) console.println("Завершение выполнения скрипта из файла");
-            else console.println("Завершение выполнения");
+            console.println("Завершение выполнения");
+            if (StatusScript.getIsScriptRun()) System.exit(0);
 
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

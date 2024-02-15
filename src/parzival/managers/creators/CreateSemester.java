@@ -1,7 +1,6 @@
 package parzival.managers.creators;
 
 import parzival.exceptions.IncorrectScriptException;
-import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.managers.InputManager;
 import parzival.managers.StatusScript;
@@ -17,14 +16,14 @@ import java.util.Scanner;
  * @author petrovviacheslav
  */
 public class CreateSemester extends BaseCreator<Semester> {
-    private boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner usedScanner = InputManager.getUsedScanner();
+    private final Scanner usedScanner = InputManager.getUsedScanner();
 
     /**
      * Конструктор класса CreateSemester
      *
-     * @param console           консоль
+     * @param console консоль
      */
     public CreateSemester(Console console) {
         this.console = console;

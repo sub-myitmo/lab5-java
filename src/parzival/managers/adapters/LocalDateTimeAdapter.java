@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 
 /**
  * Сериализатор-десериализатор для правильного парсинга формата LocalDateTime
+ *
+ * @author petrovviacheslav
  */
 public class LocalDateTimeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
     @Override

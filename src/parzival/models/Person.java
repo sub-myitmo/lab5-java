@@ -68,8 +68,7 @@ public class Person implements Validatable {
         if (name == null || name.isEmpty()) return false;
         if (birthday == null) return false;
         if (weight <= 0) return false;
-        if (location == null) return false;
-        return true;
+        return location != null;
     }
 
     @Override

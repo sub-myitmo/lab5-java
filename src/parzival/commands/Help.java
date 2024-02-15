@@ -19,7 +19,7 @@ public class Help extends Command {
      * Конструктор класса Help
      *
      * @param commandManager менеджер команд
-     * @param console консоль
+     * @param console        консоль
      */
     public Help(CommandManager commandManager, Console console) {
         super(console, "help", "вывести справку по доступным командам");
@@ -36,12 +36,10 @@ public class Help extends Command {
     public boolean execute(String[] args) {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
-            commandManager.getCommands().values().forEach(command -> {
-                console.printlnTwoArgs(command.getName(), command.getDescription());
-            });
+            commandManager.getCommands().values().forEach(command -> console.printlnTwoArgs(command.getName(), command.getDescription()));
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

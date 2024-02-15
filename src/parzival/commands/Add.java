@@ -6,10 +6,8 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
-import parzival.managers.InputManager;
 import parzival.managers.creators.CreateGroup;
 
-import java.util.Scanner;
 
 /**
  * Команда add - добавить новый элемент в коллекцию
@@ -44,13 +42,13 @@ public class Add extends Command {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
 
-            collectionManager.addElementToCollection((new CreateGroup(collectionManager, console)).make());
+            collectionManager.addElementToCollection((new CreateGroup(console)).make());
 
             console.println("Группа была создана успешно");
             return true;
 
         } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
     }

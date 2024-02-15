@@ -3,6 +3,7 @@ package parzival.commands;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+
 /**
  * Команда shuffle - перемешать элементы коллекции в случайном порядке
  *
@@ -18,7 +19,7 @@ public class Shuffle extends Command {
      * Конструктор класса Shuffle
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Shuffle(CollectionManager collectionManager, Console console) {
         super(console, "shuffle", "перемешать элементы коллекции в случайном порядке");
@@ -33,14 +34,14 @@ public class Shuffle extends Command {
      */
     @Override
     public boolean execute(String[] args) {
-        try{
-            if(!args[1].isEmpty()) throw new WrongCommandArgsException();
+        try {
+            if (!args[1].isEmpty()) throw new WrongCommandArgsException();
             collectionManager.shuffle();
             console.println("Коллекция была перемешана");
             return true;
 
-        } catch (WrongCommandArgsException e){
-            console.println(e.toString());
+        } catch (WrongCommandArgsException e) {
+            console.printerror(e.toString());
             return false;
         }
     }

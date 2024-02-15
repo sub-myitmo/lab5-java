@@ -5,7 +5,6 @@ import parzival.managers.*;
 import parzival.models.StudyGroup;
 
 
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -16,8 +15,9 @@ import java.util.Stack;
  */
 public class Main {
 
+
     /**
-     * Главный класс приложения, он запускается в первую очередь
+     * Запуск приложения
      *
      * @param args аргументы запуска
      */
@@ -26,9 +26,6 @@ public class Main {
         System.out.println("Приветствую!\nЧтение данных и запуск консольного приложения ...");
 
         String fileName = FileManager.getName();
-
-        //System.out.println(System.getenv());
-        //String fileName = "data.json";
 
         Console console = new Console();
         FileManager fileManager = new FileManager(console);

@@ -3,6 +3,7 @@ package parzival.commands;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+
 /**
  * Команда remove_first - удалить первый элемент из коллекции
  *
@@ -16,8 +17,9 @@ public class RemoveFirst extends Command {
 
     /**
      * Конструктор класса RemoveFirst
+     *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public RemoveFirst(CollectionManager collectionManager, Console console) {
         super(console, "remove_first", "удалить первый элемент из коллекции");
@@ -38,7 +40,7 @@ public class RemoveFirst extends Command {
             console.println("Первая группа была успешно удалена");
             return true;
         } catch (ArrayIndexOutOfBoundsException | WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
     }

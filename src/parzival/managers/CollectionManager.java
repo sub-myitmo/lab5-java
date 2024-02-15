@@ -72,8 +72,8 @@ public class CollectionManager {
      * @param id id элемента коллекции
      * @return элемент коллекции
      */
-    public StudyGroup getById(long id){
-        for (StudyGroup studyGroup: stackCollection) {
+    public StudyGroup getById(long id) {
+        for (StudyGroup studyGroup : stackCollection) {
             if (Objects.equals(studyGroup.getId(), id)) return studyGroup;
         }
         return null;
@@ -82,7 +82,7 @@ public class CollectionManager {
     /**
      * Удаляет первый элемент коллекции
      */
-    public void removeFirstElementCollection(){
+    public void removeFirstElementCollection() {
         stackCollection.remove(stackCollection.firstElement());
     }
 
@@ -91,14 +91,14 @@ public class CollectionManager {
      *
      * @param elem удаляемая группа
      */
-    public void removeGroup(StudyGroup elem){
+    public void removeGroup(StudyGroup elem) {
         stackCollection.remove(elem);
     }
 
     /**
      * Сортирует коллекцию в обратном порядке
      */
-    public void reorder(){
+    public void reorder() {
         Collections.reverse(stackCollection);
     }
 
@@ -107,14 +107,14 @@ public class CollectionManager {
      *
      * @return размер коллекции
      */
-    public int getSizeCollection(){
+    public int getSizeCollection() {
         return stackCollection.size();
     }
 
     /**
      * Очистка коллекции
      */
-    public void clearCollection(){
+    public void clearCollection() {
         stackCollection.clear();
     }
 
@@ -136,7 +136,7 @@ public class CollectionManager {
     /**
      * Метод перемешивает элементы коллекции групп в случайном порядке.
      */
-    public void shuffle(){
+    public void shuffle() {
         Collections.shuffle(stackCollection);
     }
 
@@ -146,7 +146,7 @@ public class CollectionManager {
      *
      * @param studyGroup добавляемая группа
      */
-    public void addElementToCollection(StudyGroup studyGroup){
+    public void addElementToCollection(StudyGroup studyGroup) {
         stackCollection.add(studyGroup);
     }
 
@@ -156,7 +156,7 @@ public class CollectionManager {
      * @param oldStudyGroup старая группа, которая будет заменена
      * @param newStudyGroup новая группа
      */
-    public void updateElement(StudyGroup oldStudyGroup, StudyGroup newStudyGroup){
+    public void updateElement(StudyGroup oldStudyGroup, StudyGroup newStudyGroup) {
         oldStudyGroup.update(newStudyGroup);
     }
 

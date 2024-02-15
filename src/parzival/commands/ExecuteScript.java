@@ -1,9 +1,8 @@
 package parzival.commands;
 
 import parzival.exceptions.WrongCommandArgsException;
-import parzival.managers.CollectionManager;
 import parzival.managers.*;
-import parzival.managers.creators.CreateGroup;
+
 
 /**
  * Команда clear - выполняет скрипт из файла
@@ -38,10 +37,11 @@ public class ExecuteScript extends Command {
     public boolean execute(String[] args) {
         try {
             if (args[1].isEmpty() || args.length > 2) throw new WrongCommandArgsException();
+            console.println(String.format("Выполнение скрипта из файла %s", args[1]));
             inputManager.scriptRun(args[1]);
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
     }

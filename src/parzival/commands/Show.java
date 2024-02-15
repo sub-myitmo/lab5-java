@@ -21,7 +21,7 @@ public class Show extends Command {
      * Конструктор класса Show
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Show(CollectionManager collectionManager, Console console) {
         super(console, "show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
@@ -41,7 +41,7 @@ public class Show extends Command {
             collectionManager.printAllElements(console);
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

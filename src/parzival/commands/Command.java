@@ -5,6 +5,7 @@ import parzival.managers.Console;
 
 /**
  * Абстрактный класс команд
+ *
  * @author petrovviacheslav
  */
 public abstract class Command {
@@ -15,17 +16,17 @@ public abstract class Command {
     /**
      * Название команды
      */
-    private String name;
+    private final String name;
     /**
      * Описание команды
      */
-    private String description;
+    private final String description;
 
     /**
      * Конструктор класса Command
      *
-     * @param console консоль
-     * @param name название команды
+     * @param console     консоль
+     * @param name        название команды
      * @param description описание команды
      */
     protected Command(Console console, String name, String description) {

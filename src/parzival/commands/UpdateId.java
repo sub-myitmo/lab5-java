@@ -9,7 +9,6 @@ import parzival.managers.Console;
 import parzival.managers.creators.CreateGroup;
 import parzival.models.StudyGroup;
 
-import java.util.Scanner;
 /**
  * Команда update id - обновить значение элемента коллекции, id которого равен заданному
  *
@@ -25,7 +24,7 @@ public class UpdateId extends Command {
      * Конструктор класса Show
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public UpdateId(CollectionManager collectionManager, Console console) {
         super(console, "update id {element}", "обновить значение элемента коллекции, id которого равен заданному");
@@ -40,18 +39,19 @@ public class UpdateId extends Command {
      */
     @Override
     public boolean execute(String[] args) {
-        try{
-            if(args[1].isEmpty()) throw new WrongCommandArgsException();
+        try {
+            if (args[1].isEmpty()) throw new WrongCommandArgsException();
 
-            long id = Long.parseLong(args[1].substring(0, args[1].length()-1));
+            long id = Long.parseLong(args[1].substring(0, args[1].length() - 1));
             StudyGroup studyGroup = collectionManager.getById(id);
             if (studyGroup == null) throw new NoExistCollectionException();
-            collectionManager.updateElement(studyGroup, (new CreateGroup(collectionManager, console)).make());
+            collectionManager.updateElement(studyGroup, (new CreateGroup(console)).make());
             console.println("Группа была заменена успешно");
             return true;
 
-        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException | NoExistCollectionException e){
-            console.println(e.toString());
+        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException |
+                 NoExistCollectionException e) {
+            console.printerror(e.toString());
             return false;
         }
     }

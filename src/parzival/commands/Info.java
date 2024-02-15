@@ -20,7 +20,7 @@ public class Info extends Command {
      * Конструктор класса Info
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Info(CollectionManager collectionManager, Console console) {
         super(console, "info", "вывести информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
@@ -40,7 +40,7 @@ public class Info extends Command {
             collectionManager.printInfoAboutCollection(console);
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
     }

@@ -17,18 +17,16 @@ import java.util.Scanner;
 public class CreateGroup extends BaseCreator<StudyGroup> {
 
     private final Console console;
-    private Scanner usedScanner = InputManager.getUsedScanner();
-    private final CollectionManager collectionManager;
-    private boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final Scanner usedScanner = InputManager.getUsedScanner();
+    private final boolean isScriptRun = StatusScript.getIsScriptRun();
 
     /**
      * Конструктор класса CreateGroup
-     * @param collectionManager менеджер коллекции
+     *
      * @param console консоль
      */
-    public CreateGroup(CollectionManager collectionManager, Console console) {
+    public CreateGroup(Console console) {
         this.console = console;
-        this.collectionManager = collectionManager;
     }
 
 

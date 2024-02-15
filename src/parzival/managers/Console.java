@@ -5,18 +5,20 @@ package parzival.managers;
  *
  * @author petrovviacheslav
  */
-public class Console implements Logger{
+public class Console implements Logger {
 
 
     public void println(String text) {
         System.out.println(text);
+    }
+    public void printerror(String text) {
+        System.out.println("$ " + text);
     }
 
 
     public void printf(String text) {
         System.out.printf(text);
     }
-
 
     public void printlnTwoArgs(String text1, String text2) {
         System.out.println(text1 + " - " + text2);

@@ -28,7 +28,7 @@ public class ParseManager {
     /**
      * Конструктор класса ParseManager
      *
-     * @param console           консоль
+     * @param console консоль
      */
     public ParseManager(Console console) {
         this.console = console;
@@ -64,8 +64,7 @@ public class ParseManager {
      */
     public String getJsonFromStack(Stack<StudyGroup> studyGroups) {
         try {
-            String json = gson.toJson(studyGroups);
-            return json;
+            return gson.toJson(studyGroups);
         } catch (Exception e) {
             console.println(e.toString());
             return "ошибка парсинга";

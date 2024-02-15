@@ -13,7 +13,7 @@ import java.util.Stack;
  *
  * @author petrovviacheslav
  */
-public class PrintAscending extends Command{
+public class PrintAscending extends Command {
     /**
      * Менеджер коллекции
      */
@@ -23,7 +23,7 @@ public class PrintAscending extends Command{
      * Конструктор класса PrintAscending
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public PrintAscending(CollectionManager collectionManager, Console console) {
         super(console, "print_ascending", "вывести элементы коллекции в порядке возрастания");
@@ -42,12 +42,12 @@ public class PrintAscending extends Command{
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
             Stack<StudyGroup> copyOfStackCollection = collectionManager.getStackCollection();
             Collections.sort(copyOfStackCollection);
-            for(StudyGroup studyGroup : copyOfStackCollection){
+            for (StudyGroup studyGroup : copyOfStackCollection) {
                 console.println(studyGroup.toString());
             }
             return true;
-        } catch (WrongCommandArgsException e){
-            console.println(e.toString());
+        } catch (WrongCommandArgsException e) {
+            console.printerror(e.toString());
             return false;
         }
 

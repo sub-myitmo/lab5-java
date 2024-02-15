@@ -5,7 +5,7 @@ package parzival.exceptions;
  *
  * @author petrovviacheslav
  */
-public class IncorrectInputException extends Exception{
+public class IncorrectInputException extends Exception {
     @Override
     public String toString() {
         return "Ошибка при создании объекта!";

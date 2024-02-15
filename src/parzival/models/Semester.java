@@ -29,10 +29,10 @@ public enum Semester {
      * @return строка со всеми элементами enum'а через запятую
      */
     public static String getNames() {
-        String listSemester = "";
+        StringBuilder listSemester = new StringBuilder();
         for (Semester semester : values()) {
-            listSemester += semester + ", ";
+            listSemester.append(semester).append(", ");
         }
-        return listSemester.substring(0, listSemester.length()-2);
+        return listSemester.substring(0, listSemester.length() - 2);
     }
 }

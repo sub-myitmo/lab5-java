@@ -22,7 +22,7 @@ public class PrintFieldAscendingStudentsCount extends Command {
      * Конструктор класса Reorder
      *
      * @param collectionManager менеджер коллекции.
-     * @param console консоль
+     * @param console           консоль
      */
     public PrintFieldAscendingStudentsCount(CollectionManager collectionManager, Console console) {
         super(console, "print_field_ascending_students_count", "вывести значения поля studentsCount всех элементов в порядке возрастания");
@@ -61,7 +61,7 @@ public class PrintFieldAscendingStudentsCount extends Command {
             }
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

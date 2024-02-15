@@ -1,4 +1,4 @@
 show
 info
-qq
+execute_script 1.txt
 help

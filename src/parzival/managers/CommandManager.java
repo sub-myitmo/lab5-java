@@ -32,14 +32,17 @@ public class CommandManager {
         return commands;
     }
 
-//     private Stack<String> history = new Stack<>();
-//     если надо будет, то можно будет допилить команду history тоже
-//    public Stack<String> getHistory() {
-//        return history;
-//    }
-//
-//    public void addHistory(String command) {
-//        history.add(command);
-//    }
+    /*
+    private Stack<String> history = new Stack<>();
+     если надо будет, то можно будет допилить команду history тоже
+    public Stack<String> getHistory() {
+        return history;
+    }
+
+    public void addHistory(String command) {
+        history.add(command);
+    }
+     */
+
 
 }

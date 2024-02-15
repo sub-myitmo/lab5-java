@@ -18,8 +18,9 @@ public class Clear extends Command {
 
     /**
      * Конструктор класса Clear
+     *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Clear(CollectionManager collectionManager, Console console) {
         super(console, "clear", "очищает коллекцию");
@@ -39,7 +40,7 @@ public class Clear extends Command {
             collectionManager.clearCollection();
             return true;
         } catch (WrongCommandArgsException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

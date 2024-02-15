@@ -9,7 +9,7 @@ import parzival.managers.Console;
  *
  * @author petrovviacheslav
  */
-public class Reorder extends Command{
+public class Reorder extends Command {
     /**
      * Менеджер коллекции
      */
@@ -19,7 +19,7 @@ public class Reorder extends Command{
      * Конструктор класса Reorder
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Reorder(CollectionManager collectionManager, Console console) {
         super(console, "reorder", "отсортировать коллекцию в порядке, обратном нынешнему");
@@ -34,14 +34,14 @@ public class Reorder extends Command{
      */
     @Override
     public boolean execute(String[] args) {
-        try{
-            if(!args[1].isEmpty()) throw new WrongCommandArgsException();
+        try {
+            if (!args[1].isEmpty()) throw new WrongCommandArgsException();
             collectionManager.reorder();
             console.println("Коллекция отсортирована в обратном порядке");
             return true;
 
-        } catch (WrongCommandArgsException e){
-            console.println(e.toString());
+        } catch (WrongCommandArgsException e) {
+            console.printerror(e.toString());
             return false;
         }
     }

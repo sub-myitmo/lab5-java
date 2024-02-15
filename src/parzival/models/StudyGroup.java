@@ -15,7 +15,7 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
 
     private static long nextId = 1; // id для новой группы
 
-    private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private final long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -152,17 +152,17 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
     /**
      * Обновить состояние всех полей группы
      *
-     * @param studyGroup  группа, поля которой присваиваются к группе this
+     * @param studyGroup группа, поля которой присваиваются к группе this
      */
     public void update(StudyGroup studyGroup) {
-        this.name = studyGroup.name;
-        this.coordinates = studyGroup.coordinates;
-        this.creationDate = studyGroup.creationDate;
-        this.studentsCount = studyGroup.studentsCount;
-        this.expelledStudents = studyGroup.expelledStudents;
-        this.transferredStudents = studyGroup.transferredStudents;
-        this.semesterEnum = studyGroup.semesterEnum;
-        this.groupAdmin = studyGroup.groupAdmin;
+        this.name = studyGroup.getName();
+        this.coordinates = studyGroup.getCoordinates();
+        this.creationDate = studyGroup.getCreationDate();
+        this.studentsCount = studyGroup.getStudentsCount();
+        this.expelledStudents = studyGroup.getExpelledStudents();
+        this.transferredStudents = studyGroup.getTransferredStudents();
+        this.semesterEnum = studyGroup.getSemesterEnum();
+        this.groupAdmin = studyGroup.getGroupAdmin();
     }
 
     @Override

@@ -5,7 +5,7 @@ package parzival.exceptions;
  *
  * @author petrovviacheslav
  */
-public class IncorrectScriptException extends Exception{
+public class IncorrectScriptException extends Exception {
     @Override
     public String toString() {
         return "Ошибка в скрипте!";

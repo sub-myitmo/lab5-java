@@ -3,14 +3,11 @@ package parzival.managers.creators;
 import parzival.exceptions.IncorrectInputException;
 import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
-import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.managers.InputManager;
 import parzival.managers.StatusScript;
-import parzival.models.Coordinates;
 import parzival.models.Location;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -18,15 +15,15 @@ import java.util.Scanner;
  *
  * @author petrovviacheslav
  */
-public class CreateLocation extends BaseCreator<Location>{
-    private boolean isScriptRun = StatusScript.getIsScriptRun();
+public class CreateLocation extends BaseCreator<Location> {
+    private final boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner usedScanner = InputManager.getUsedScanner();
+    private final Scanner usedScanner = InputManager.getUsedScanner();
 
     /**
      * Конструктор класса CreateLocation
      *
-     * @param console           консоль
+     * @param console консоль
      */
     public CreateLocation(Console console) {
         this.console = console;
@@ -66,7 +63,7 @@ public class CreateLocation extends BaseCreator<Location>{
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 console.println("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
@@ -96,7 +93,7 @@ public class CreateLocation extends BaseCreator<Location>{
                 Y = Integer.parseInt(variable);
                 break;
 
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 console.println("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (MustBeNotEmptyException e) {

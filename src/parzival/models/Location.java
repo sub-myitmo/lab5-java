@@ -57,8 +57,7 @@ public class Location implements Validatable {
 
     @Override
     public boolean validate() {
-        if (y == null || x == null) return false;
-        return true;
+        return y != null && x != null;
     }
 
     @Override

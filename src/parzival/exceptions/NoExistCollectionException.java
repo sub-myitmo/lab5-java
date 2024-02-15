@@ -5,7 +5,7 @@ package parzival.exceptions;
  *
  * @author petrovviacheslav
  */
-public class NoExistCollectionException extends Exception{
+public class NoExistCollectionException extends Exception {
 
     @Override
     public String toString() {

@@ -20,7 +20,7 @@ public class RemoveById extends Command {
      * Конструктор класса RemoveById
      *
      * @param collectionManager менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public RemoveById(CollectionManager collectionManager, Console console) {
         super(console, "remove_by_id", "удалить элемент из коллекции по его id");
@@ -38,7 +38,7 @@ public class RemoveById extends Command {
         try {
             if (args[1].isEmpty() || args.length > 2) throw new WrongCommandArgsException();
 
-            long id = Long.parseLong(args[1].substring(0, args[1].length()-1));
+            long id = Long.parseLong(args[1].substring(0, args[1].length() - 1));
             if (collectionManager.getById(id) == null) throw new NoExistCollectionException();
             collectionManager.removeGroup(collectionManager.getById(id));
 
@@ -46,7 +46,7 @@ public class RemoveById extends Command {
             return true;
 
         } catch (WrongCommandArgsException | NoExistCollectionException e) {
-            console.println(e.toString());
+            console.printerror(e.toString());
             return false;
         }
 

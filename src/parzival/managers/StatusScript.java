@@ -7,6 +7,7 @@ package parzival.managers;
  */
 public class StatusScript {
     private static boolean isScriptRun = false;
+
     /**
      * Получает флаг, сигнализирующий о том, что запущен/не запущен скрипт
      *

@@ -4,6 +4,7 @@ import parzival.models.validate.Validatable;
 
 /**
  * Класс координат группы
+ *
  * @author petrovviacheslav
  */
 
@@ -42,7 +43,7 @@ public class Coordinates implements Validatable {
 
     @Override
     public boolean validate() {
-        return !(x > 265 || x == null);
+        return !(x > 265);
     }
 
 // дописать hashCode equals

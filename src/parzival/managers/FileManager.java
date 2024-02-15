@@ -1,10 +1,6 @@
 package parzival.managers;
 
-import parzival.managers.Console;
-import parzival.models.StudyGroup;
-
 import java.io.*;
-import java.util.Stack;
 
 
 /**
@@ -15,14 +11,14 @@ public class FileManager {
      * Переменная хранящая путь до начального файла .json
      */
     public static String path;
-    private Console console;
+    private final Console console;
 
     /**
      * Конструктор класса CreateSemester
      *
-     * @param console           консоль
+     * @param console консоль
      */
-    public FileManager(Console console){
+    public FileManager(Console console) {
         this.console = console;
     }
 
@@ -35,16 +31,15 @@ public class FileManager {
     public String readFromFile(String fileName) {
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
-            String stringFile = "";
+            StringBuilder stringFile = new StringBuilder();
             int symbolNow = inputStreamReader.read();
             while (symbolNow != -1) {
-                stringFile += String.valueOf((char) symbolNow);
+                stringFile.append(((char) symbolNow));
                 symbolNow = inputStreamReader.read();
             }
             inputStreamReader.close();
-            return stringFile;
-        }
-        catch (IOException e) {
+            return stringFile.toString();
+        } catch (IOException e) {
             console.println("Json-файл не найден.");
             return "ошибка при чтении файла!";
         }
@@ -54,7 +49,7 @@ public class FileManager {
      * Запись текста в файл
      *
      * @param fileName имя файла
-     * @param text текст для файла
+     * @param text     текст для файла
      */
     public void writeToFile(String fileName, String text) {
         try {

@@ -8,7 +8,7 @@ import parzival.managers.*;
  *
  * @author petrovviacheslav
  */
-public class Save extends Command{
+public class Save extends Command {
     /**
      * Менеджер файлов
      */
@@ -25,10 +25,10 @@ public class Save extends Command{
     /**
      * Конструктор класса Save
      *
-     * @param fileManager менеджер файлов
-     * @param parseManager менеджер парсинга
+     * @param fileManager       менеджер файлов
+     * @param parseManager      менеджер парсинга
      * @param collectionManager Менеджер коллекции
-     * @param console консоль
+     * @param console           консоль
      */
     public Save(FileManager fileManager, ParseManager parseManager, CollectionManager collectionManager, Console console) {
         super(console, "save", "сохранить коллекцию в файл");
@@ -46,13 +46,13 @@ public class Save extends Command{
     @Override
     public boolean execute(String[] args) {
         try {
-            if(!args[1].isEmpty()) throw new WrongCommandArgsException();
+            if (!args[1].isEmpty()) throw new WrongCommandArgsException();
             fileManager.writeToFile("data2.json", parseManager.getJsonFromStack(collectionManager.getStackCollection()));
 
             console.println("Коллекция была успешно сохранена");
             return true;
-        } catch (WrongCommandArgsException e){
-            console.println(e.toString());
+        } catch (WrongCommandArgsException e) {
+            console.printerror(e.toString());
             return false;
         }
 

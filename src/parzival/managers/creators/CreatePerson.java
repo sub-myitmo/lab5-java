@@ -1,37 +1,32 @@
 package parzival.managers.creators;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import parzival.exceptions.IncorrectInputException;
 import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
-import parzival.managers.CollectionManager;
 import parzival.managers.Console;
 import parzival.managers.InputManager;
 import parzival.managers.StatusScript;
-import parzival.managers.adapters.LocalDateTimeAdapter;
-import parzival.models.Coordinates;
 import parzival.models.Location;
 import parzival.models.Person;
 
-import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
 /**
  * Класс для создания человека
  *
  * @author petrovviacheslav
  */
 public class CreatePerson extends BaseCreator<Person> {
-    private boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun = StatusScript.getIsScriptRun();
     private final Console console;
-    private Scanner usedScanner = InputManager.getUsedScanner();
+    private final Scanner usedScanner = InputManager.getUsedScanner();
 
     /**
      * Конструктор класса CreatePerson
      *
-     * @param console           консоль
+     * @param console консоль
      */
     public CreatePerson(Console console) {
         this.console = console;
@@ -88,7 +83,7 @@ public class CreatePerson extends BaseCreator<Person> {
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
-            }  catch (IllegalStateException e) {
+            } catch (IllegalStateException e) {
                 console.println("Непредвиденная ошибка!");
                 System.exit(0);
             } catch (Exception e) {
@@ -115,7 +110,7 @@ public class CreatePerson extends BaseCreator<Person> {
             } catch (MustBeNotEmptyException e) {
                 console.println(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 console.println("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {

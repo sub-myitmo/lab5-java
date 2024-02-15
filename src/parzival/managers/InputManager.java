@@ -2,10 +2,11 @@ package parzival.managers;
 
 
 import parzival.commands.Command;
-import parzival.managers.creators.CreateGroup;
+import parzival.exceptions.ScriptRecursionException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -17,6 +18,8 @@ import java.util.Scanner;
 public class InputManager {
     private final Console console;
     private final CommandManager commandManager;
+
+    private ArrayList<String> filesNamesList = new ArrayList<>();
 
     /**
      * Сканер для чтения пользовательского ввода/ввода из файла
@@ -34,7 +37,7 @@ public class InputManager {
     /**
      * Установить новый сканер
      *
-     * @param scanner  новый сканер для использования
+     * @param scanner новый сканер для использования
      */
     public static void setUsedScanner(Scanner scanner) {
         usedScanner = scanner;
@@ -57,36 +60,52 @@ public class InputManager {
      */
     public void scriptRun(String fileName) {
 
+        Scanner oldScanner = usedScanner;
+
         try {
+
             String[] scriptCommand;
             int status = 1;
-            Scanner scriptScanner = new Scanner(new File(fileName));
-            Scanner oldScanner = usedScanner;
-            usedScanner = scriptScanner;
 
-            StatusScript.setIsScriptRun();
+            usedScanner = new Scanner(new File(fileName));
+
+            if (filesNamesList.isEmpty()) StatusScript.setIsScriptRun();
+
+            filesNamesList.add(fileName);
+
             while (usedScanner.hasNext() && status != 2) {
 
-                console.printf("(from script)-> ");
+                console.printf(String.format("script %s-> (&^~^&)~~ ", fileName));
 
                 String gettingString = usedScanner.nextLine();
                 scriptCommand = (gettingString.trim() + " ").split(" ", 2);
                 console.println(gettingString);
 
+                if (scriptCommand[0].equals("execute_script")) {
+                    if (filesNamesList.contains(fileName)) throw new ScriptRecursionException();
+                }
+
                 status = executeCommand(scriptCommand);
             }
-            StatusScript.deleteIsScriptRun();
+
+            filesNamesList.remove(fileName);
+            if (filesNamesList.isEmpty()) StatusScript.deleteIsScriptRun();
             usedScanner = oldScanner;
 
         } catch (
                 FileNotFoundException exception) {
-            console.println("Файл со скриптом не найден!");
+            console.printerror("Файл со скриптом не найден!");
         } catch (
                 NoSuchElementException exception) {
-            console.println("Весь файл прочитан!");
+            console.printerror("Весь файл прочитан!");
         } catch (
                 IllegalStateException exception) {
-            console.println("Непредвиденная ошибка.");
+            console.printerror("Непредвиденная ошибка.");
+        } catch (
+                ScriptRecursionException exception) {
+            console.printerror(exception.toString());
+            usedScanner = oldScanner;
+            StatusScript.deleteIsScriptRun();
         }
 
 
@@ -100,23 +119,19 @@ public class InputManager {
             String[] userCommand;
             int status;
             do {
-                console.printf("-> ");
+                console.printf("(&^~^&)~~ ");
 
                 userCommand = (usedScanner.nextLine().trim() + " ").split(" ", 2);
 
                 status = executeCommand(userCommand);
             } while (status != 2);
         } catch (NoSuchElementException exception) {
-            console.println("Работа программы прекращена!");
+            console.printerror("Работа программы прекращена!");
         } catch (IllegalStateException exception) {
-            console.println("Непредвиденная ошибка!");
+            console.printerror("Непредвиденная ошибка!");
         }
 
     }
-
-    // 0 - успешно
-    // 1 - ошибка
-    // 2 - exit
 
     /**
      * Метод для обработки команды и запуска её выполнения
