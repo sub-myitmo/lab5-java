@@ -2,6 +2,7 @@ package parzival.managers;
 
 
 import parzival.commands.Command;
+import parzival.exceptions.EmptyFileException;
 import parzival.exceptions.ScriptRecursionException;
 
 import java.io.File;
@@ -25,10 +26,13 @@ public class InputManager {
      * Сканер для чтения пользовательского ввода/ввода из файла
      */
     private static Scanner usedScanner;
-//    private final String startInput = "-> ";
-//    private final String startInputForScript = "(from script)-> ";
 
-
+    /**
+     * Конструктор класса InputManager
+     *
+     * @param commandManager менеджер команд
+     * @param console        консоль
+     */
     public InputManager(Console console, CommandManager commandManager) {
         this.console = console;
         this.commandManager = commandManager;
@@ -73,16 +77,18 @@ public class InputManager {
 
             filesNamesList.add(fileName);
 
+            if (!usedScanner.hasNext()) throw new EmptyFileException();
+
             while (usedScanner.hasNext() && status != 2) {
 
-                console.printf(String.format("script %s-> (&^~^&)~~ ", fileName));
+                console.printf(String.format("script %s-> ~ ", fileName));
 
                 String gettingString = usedScanner.nextLine();
                 scriptCommand = (gettingString.trim() + " ").split(" ", 2);
                 console.println(gettingString);
 
                 if (scriptCommand[0].equals("execute_script")) {
-                    if (filesNamesList.contains(fileName)) throw new ScriptRecursionException();
+                    if (filesNamesList.contains(scriptCommand[1])) throw new ScriptRecursionException();
                 }
 
                 status = executeCommand(scriptCommand);
@@ -90,22 +96,24 @@ public class InputManager {
 
             filesNamesList.remove(fileName);
             if (filesNamesList.isEmpty()) StatusScript.deleteIsScriptRun();
-            usedScanner = oldScanner;
 
+        } catch (
+                ScriptRecursionException | EmptyFileException exception) {
+            console.printerror(exception.toString());
         } catch (
                 FileNotFoundException exception) {
             console.printerror("Файл со скриптом не найден!");
         } catch (
                 NoSuchElementException exception) {
-            console.printerror("Весь файл прочитан!");
+            console.println("");
+            console.printerror("Весь файл " + fileName + "прочитан!");
         } catch (
                 IllegalStateException exception) {
+            console.println("");
             console.printerror("Непредвиденная ошибка.");
-        } catch (
-                ScriptRecursionException exception) {
-            console.printerror(exception.toString());
-            usedScanner = oldScanner;
+        } finally {
             StatusScript.deleteIsScriptRun();
+            usedScanner = oldScanner;
         }
 
 
@@ -119,15 +127,17 @@ public class InputManager {
             String[] userCommand;
             int status;
             do {
-                console.printf("(&^~^&)~~ ");
+                console.printf("~ ");
 
                 userCommand = (usedScanner.nextLine().trim() + " ").split(" ", 2);
 
                 status = executeCommand(userCommand);
             } while (status != 2);
         } catch (NoSuchElementException exception) {
+            console.println("");
             console.printerror("Работа программы прекращена!");
         } catch (IllegalStateException exception) {
+            console.println("");
             console.printerror("Непредвиденная ошибка!");
         }
 
@@ -144,7 +154,7 @@ public class InputManager {
 
         Command command = commandManager.getCommands().get(argsCommand[0]);
         if (command == null) {
-            console.println("Команда '" + argsCommand[0] + "' не найдена, используйте команду 'help', чтобы вывести справку");
+            console.printerror("Команда '" + argsCommand[0] + "' не найдена, используйте команду 'help', чтобы вывести справку");
             return 1;
         }
 

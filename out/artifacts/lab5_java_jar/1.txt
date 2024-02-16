@@ -1,4 +1,3 @@
-show
+execute_script 2.txt
 info
-execute_script 1.txt
-help
+add
