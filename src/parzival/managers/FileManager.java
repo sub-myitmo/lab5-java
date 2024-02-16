@@ -1,5 +1,7 @@
 package parzival.managers;
 
+import parzival.exceptions.NotEnoughRightsException;
+
 import java.io.*;
 
 
@@ -30,6 +32,9 @@ public class FileManager {
      */
     public String readFromFile(String fileName) {
         try {
+            var filePath = new File(fileName);
+            if (!filePath.canRead()) throw new NotEnoughRightsException();
+
             InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
             StringBuilder stringFile = new StringBuilder();
             int symbolNow = inputStreamReader.read();
@@ -39,9 +44,14 @@ public class FileManager {
             }
             inputStreamReader.close();
             return stringFile.toString();
+        } catch (NotEnoughRightsException e) {
+            console.println(e.toString());
+            System.exit(0);
+            return "";
         } catch (IOException e) {
             console.println("Json-файл не найден.");
-            return "ошибка при чтении файла!";
+            System.exit(0);
+            return "";
         }
     }
 
@@ -53,10 +63,15 @@ public class FileManager {
      */
     public void writeToFile(String fileName, String text) {
         try {
+            var filePath = new File(fileName);
+            if (!filePath.canWrite()) throw new NotEnoughRightsException();
+
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(fileName));
             char[] chars = text.toCharArray();
             outputStreamWriter.write(chars, 0, chars.length);
             outputStreamWriter.close();
+        } catch (NotEnoughRightsException e) {
+            console.println(e.toString());
         } catch (IOException e) {
             console.println("ошибка при записи файла!");
         }

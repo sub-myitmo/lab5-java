@@ -1,6 +1,7 @@
 package parzival.managers.creators;
 
 import parzival.exceptions.IncorrectScriptException;
+import parzival.exceptions.MustBeNotEmptyException;
 import parzival.managers.Console;
 import parzival.managers.InputManager;
 import parzival.managers.StatusScript;
@@ -39,18 +40,22 @@ public class CreateSemester extends BaseCreator<Semester> {
                 String strSemester = usedScanner.nextLine().trim();
 
                 if (isScriptRun) console.println(strSemester);
+                if (strSemester.isEmpty()) throw new MustBeNotEmptyException();
 
                 semester = Semester.valueOf(strSemester.toUpperCase());
                 break;
 
+            } catch (MustBeNotEmptyException e) {
+                console.printerror(e.toString());
+                if (isScriptRun) throw new IncorrectScriptException();
             } catch (NoSuchElementException exception) {
-                console.println("Номер семестра не распознан!");
+                console.printerror("Номер семестра не распознан!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalArgumentException exception) {
-                console.println("Номера семестра нет в списке!");
+                console.printerror("Номера семестра нет в списке!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }

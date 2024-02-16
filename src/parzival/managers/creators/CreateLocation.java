@@ -54,20 +54,20 @@ public class CreateLocation extends BaseCreator<Location> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 X = Float.parseFloat(variable);
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число!");
+                console.printerror("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -87,20 +87,20 @@ public class CreateLocation extends BaseCreator<Location> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 Y = Integer.parseInt(variable);
                 break;
 
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число!");
+                console.printerror("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -114,17 +114,17 @@ public class CreateLocation extends BaseCreator<Location> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 Z = Double.parseDouble(variable);
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }

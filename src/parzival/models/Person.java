@@ -19,6 +19,11 @@ public class Person implements Validatable {
 
     /**
      * Конструктор класса Person
+     *
+     * @param name имя
+     * @param birthday день рождения
+     * @param weight вес
+     * @param location местоположение
      */
     public Person(String name, LocalDateTime birthday, double weight, Location location) {
         this.name = name;

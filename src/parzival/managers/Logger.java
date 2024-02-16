@@ -14,6 +14,13 @@ public interface Logger {
     void println(String text);
 
     /**
+     * Вывод текста ошибки
+     *
+     * @param text текст ошибки
+     */
+    void printerror(String text);
+
+    /**
      * Вывод текста без окончания строки
      *
      * @param text текст

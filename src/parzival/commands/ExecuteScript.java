@@ -38,7 +38,7 @@ public class ExecuteScript extends Command {
         try {
             if (args[1].isEmpty() || args.length > 2) throw new WrongCommandArgsException();
             console.println(String.format("Выполнение скрипта из файла %s", args[1]));
-            inputManager.scriptRun(args[1]);
+            inputManager.scriptRun(args[1].substring(0, args[1].length()-1));
             return true;
         } catch (WrongCommandArgsException e) {
             console.printerror(e.toString());

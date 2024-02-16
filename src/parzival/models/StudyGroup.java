@@ -27,6 +27,15 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
 
     /**
      * Конструктор класса StudyGroup
+     *
+     * @param name имя
+     * @param coordinates координаты
+     * @param creationDate дата создания (генерируется автомаитчески при add)
+     * @param studentsCount количество студентов
+     * @param expelledStudents количество отчисленных студентов
+     * @param transferredStudents количество переведённых студентов
+     * @param semesterEnum номер семестра в качестве enum'а
+     * @param groupAdmin админ группы
      */
     public StudyGroup(String name, Coordinates coordinates, Date creationDate, Long studentsCount, Long expelledStudents, Integer transferredStudents, Semester semesterEnum, Person groupAdmin) {
         this.id = nextId++;

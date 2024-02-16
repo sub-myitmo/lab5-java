@@ -52,8 +52,8 @@ public class CreatePerson extends BaseCreator<Person> {
             try {
                 name = usedScanner.nextLine().trim();
 
-                if (name.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(name);
+                if (name.isEmpty()) throw new MustBeNotEmptyException();
                 break;
 
             } catch (MustBeNotEmptyException e) {
@@ -74,8 +74,8 @@ public class CreatePerson extends BaseCreator<Person> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 birthday = LocalDateTime.parse(variable);
                 break;
@@ -101,20 +101,20 @@ public class CreatePerson extends BaseCreator<Person> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 weight = Double.parseDouble(variable);
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число!");
+                console.printerror("Надо ввести число!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }

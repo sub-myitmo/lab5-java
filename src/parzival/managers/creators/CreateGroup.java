@@ -61,20 +61,20 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 number = Long.parseLong(variable);
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число в формате Long!");
+                console.printerror("Надо ввести число в формате Long!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -88,15 +88,16 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
             try {
                 name = usedScanner.nextLine().trim();
 
-                if (name.isEmpty()) throw new MustBeNotEmptyException();
+
                 if (isScriptRun) console.println(name);
+                if (name.isEmpty()) throw new MustBeNotEmptyException();
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -122,20 +123,21 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (variable.isEmpty()) throw new MustBeNotEmptyException();
+
                 if (isScriptRun) console.println(variable);
+                if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 transferredStudents = Integer.parseInt(variable);
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число в формате Integer!");
+                console.printerror("Надо ввести число в формате Integer!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
