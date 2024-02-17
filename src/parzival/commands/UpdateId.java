@@ -6,6 +6,7 @@ import parzival.exceptions.NoExistCollectionException;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+import parzival.managers.StatusScript;
 import parzival.managers.creators.CreateGroup;
 import parzival.models.StudyGroup;
 
@@ -19,16 +20,19 @@ public class UpdateId extends Command {
      * Менеджер коллекции
      */
     private final CollectionManager collectionManager;
+    private StatusScript statusScript;
 
     /**
      * Конструктор класса Show
      *
      * @param collectionManager менеджер коллекции
      * @param console           консоль
+     * @param statusScript состояние скрипта
      */
-    public UpdateId(CollectionManager collectionManager, Console console) {
+    public UpdateId(CollectionManager collectionManager, Console console, StatusScript statusScript) {
         super(console, "update id {element}", "обновить значение элемента коллекции, id которого равен заданному");
         this.collectionManager = collectionManager;
+        this.statusScript = statusScript;
     }
 
     /**
@@ -45,7 +49,7 @@ public class UpdateId extends Command {
             long id = Long.parseLong(args[1].substring(0, args[1].length() - 1));
             StudyGroup studyGroup = collectionManager.getById(id);
             if (studyGroup == null) throw new NoExistCollectionException();
-            collectionManager.updateElement(studyGroup, (new CreateGroup(console)).make());
+            collectionManager.updateElement(studyGroup, (new CreateGroup(console, statusScript.getIsScriptRun())).create());
             console.println("Группа была заменена успешно");
             return true;
 

@@ -16,7 +16,7 @@ import java.util.Scanner;
  * @author petrovviacheslav
  */
 public class CreateLocation extends BaseCreator<Location> {
-    private final boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun;
     private final Console console;
     private final Scanner usedScanner = InputManager.getUsedScanner();
 
@@ -24,14 +24,16 @@ public class CreateLocation extends BaseCreator<Location> {
      * Конструктор класса CreateLocation
      *
      * @param console консоль
+     * @param isScriptRun состояние скрипта
      */
-    public CreateLocation(Console console) {
+    public CreateLocation(Console console, boolean isScriptRun) {
         this.console = console;
+        this.isScriptRun = isScriptRun;
     }
 
 
     @Override
-    public Location make() throws IncorrectScriptException, IncorrectInputException {
+    public Location create() throws IncorrectScriptException, IncorrectInputException {
         Location location = new Location(
                 requestX(),
                 requestY(),

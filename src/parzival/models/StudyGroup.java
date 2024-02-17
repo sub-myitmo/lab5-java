@@ -28,14 +28,14 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
     /**
      * Конструктор класса StudyGroup
      *
-     * @param name имя
-     * @param coordinates координаты
-     * @param creationDate дата создания (генерируется автомаитчески при add)
-     * @param studentsCount количество студентов
-     * @param expelledStudents количество отчисленных студентов
+     * @param name                имя
+     * @param coordinates         координаты
+     * @param creationDate        дата создания (генерируется автомаитчески при add)
+     * @param studentsCount       количество студентов
+     * @param expelledStudents    количество отчисленных студентов
      * @param transferredStudents количество переведённых студентов
-     * @param semesterEnum номер семестра в качестве enum'а
-     * @param groupAdmin админ группы
+     * @param semesterEnum        номер семестра в качестве enum'а
+     * @param groupAdmin          админ группы
      */
     public StudyGroup(String name, Coordinates coordinates, Date creationDate, Long studentsCount, Long expelledStudents, Integer transferredStudents, Semester semesterEnum, Person groupAdmin) {
         this.id = nextId++;
@@ -57,9 +57,11 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
      * @param collectionManager менеджер коллекции
      */
     public static void updateNextId(CollectionManager collectionManager) {
-        long maxId = collectionManager
-                .getStackCollection().lastElement().getId();
-        nextId = maxId + 1;
+        if (collectionManager.getSizeCollection() != 0) {
+            long maxId = collectionManager
+                    .getStackCollection().lastElement().getId();
+            nextId = maxId + 1;
+        }
     }
 
     /**

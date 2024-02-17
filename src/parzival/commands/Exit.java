@@ -11,13 +11,16 @@ import parzival.managers.StatusScript;
  */
 public class Exit extends Command {
 
+    private StatusScript statusScript;
     /**
      * Конструктор класса Exit
      *
      * @param console консоль
+     * @param statusScript состояние скрипта
      */
-    public Exit(Console console) {
+    public Exit(Console console, StatusScript statusScript) {
         super(console, "exit", "завершить программу (без сохранения в файл)");
+        this.statusScript = statusScript;
     }
 
     /**
@@ -32,7 +35,7 @@ public class Exit extends Command {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
 
             console.println("Завершение выполнения");
-            if (StatusScript.getIsScriptRun()) System.exit(0);
+            if (statusScript.getIsScriptRun()) System.exit(0);
 
             return true;
         } catch (WrongCommandArgsException e) {

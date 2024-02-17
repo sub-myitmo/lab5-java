@@ -3,11 +3,13 @@ package parzival.managers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import parzival.exceptions.SameIdException;
 import parzival.managers.adapters.LocalDateTimeAdapter;
 import parzival.models.StudyGroup;
 
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -48,10 +50,16 @@ public class ParseManager {
                 }.getType();
                 studyGroups = gson.fromJson(json, collectionType);
 
+                ArrayList<Long> idList = new ArrayList<>();
+                for (StudyGroup elem : studyGroups){
+                    if (idList.contains(elem.getId())) throw new SameIdException();
+                    idList.add(elem.getId());
+                }
+
             }
             return studyGroups;
         } catch (Exception e) {
-            console.println("Json-файл повреждён, данные из него не были взяты.");
+            console.println("Json-файл повреждён, данные из него не были взяты. Коллекция, с которой вы работаете пуста");
             return new Stack<>();
         }
     }

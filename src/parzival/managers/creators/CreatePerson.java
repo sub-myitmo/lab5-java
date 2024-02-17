@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author petrovviacheslav
  */
 public class CreatePerson extends BaseCreator<Person> {
-    private final boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun;
     private final Console console;
     private final Scanner usedScanner = InputManager.getUsedScanner();
 
@@ -27,14 +27,16 @@ public class CreatePerson extends BaseCreator<Person> {
      * Конструктор класса CreatePerson
      *
      * @param console консоль
+     * @param isScriptRun состояние скрипта
      */
-    public CreatePerson(Console console) {
+    public CreatePerson(Console console, boolean isScriptRun) {
         this.console = console;
+        this.isScriptRun = isScriptRun;
     }
 
 
     @Override
-    public Person make() throws IncorrectScriptException, IncorrectInputException {
+    public Person create() throws IncorrectScriptException, IncorrectInputException {
         Person groupAdmin = new Person(
                 requestNamePerson(),
                 requestBirthday(),
@@ -122,7 +124,7 @@ public class CreatePerson extends BaseCreator<Person> {
     }
 
     private Location requestLocation() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreateLocation(console)).make();
+        return (new CreateLocation(console, isScriptRun)).create();
     }
 
 }

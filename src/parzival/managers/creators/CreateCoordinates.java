@@ -16,7 +16,7 @@ import java.util.Scanner;
  * @author petrovviacheslav
  */
 public class CreateCoordinates extends BaseCreator<Coordinates> {
-    private final boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun;
     private final Console console;
     private final Scanner usedScanner = InputManager.getUsedScanner();
 
@@ -24,14 +24,16 @@ public class CreateCoordinates extends BaseCreator<Coordinates> {
      * Конструктор класса CreateCoordinates
      *
      * @param console консоль
+     * @param isScriptRun состояние скрипта
      */
-    public CreateCoordinates(Console console) {
+    public CreateCoordinates(Console console, boolean isScriptRun) {
         this.console = console;
+        this.isScriptRun = isScriptRun;
     }
 
 
     @Override
-    public Coordinates make() throws IncorrectScriptException, IncorrectInputException {
+    public Coordinates create() throws IncorrectScriptException, IncorrectInputException {
         Coordinates coordinates = new Coordinates(
                 requestX(),
                 requestY()

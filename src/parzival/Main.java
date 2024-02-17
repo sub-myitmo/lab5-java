@@ -44,12 +44,12 @@ public class Main {
 
         Scanner userScanner = new Scanner(System.in);
 
+
         CommandManager commandManager = new CommandManager() {{
             addCommand("help", new Help(this, console));
             addCommand("info", new Info(collectionManager, console));
             addCommand("show", new Show(collectionManager, console));
             addCommand("clear", new Clear(collectionManager, console));
-            addCommand("exit", new Exit(console));
             addCommand("remove_by_id", new RemoveById(collectionManager, console));
             addCommand("remove_first", new RemoveFirst(collectionManager, console));
             addCommand("shuffle", new Shuffle(collectionManager, console));
@@ -57,14 +57,19 @@ public class Main {
             addCommand("print_ascending", new PrintAscending(collectionManager, console));
             addCommand("print_field_ascending_students_count", new PrintFieldAscendingStudentsCount(collectionManager, console));
             addCommand("save", new Save(fileManager, parseManager, collectionManager, console));
-            addCommand("add", new Add(collectionManager, console));
-            addCommand("update", new UpdateId(collectionManager, console));
         }};
 
         InputManager inputManager = new InputManager(console, commandManager);
         InputManager.setUsedScanner(userScanner);
 
+        StatusScript statusScript = inputManager.getStatusScript();
+
         commandManager.addCommand("execute_script", new ExecuteScript(inputManager, console));
+        commandManager.addCommand("add", new Add(collectionManager, console, statusScript));
+        commandManager.addCommand("update", new UpdateId(collectionManager, console, statusScript));
+
+        commandManager.addCommand("exit", new Exit(console, statusScript));
+
         inputManager.interactiveRun();
 
     }

@@ -6,28 +6,35 @@ package parzival.managers;
  * @author petrovviacheslav
  */
 public class StatusScript {
-    private static boolean isScriptRun = false;
+    private boolean isScriptRun;
+
+    /**
+     * Конструктор класса StatusScript
+     */
+    public StatusScript() {
+        this.isScriptRun = false;
+    }
 
     /**
      * Получает флаг, сигнализирующий о том, что запущен/не запущен скрипт
      *
      * @return состояние запуска скрипта из файла
      */
-    public static boolean getIsScriptRun() {
+    public boolean getIsScriptRun() {
         return isScriptRun;
     }
 
     /**
      * Поднимает флаг, сигнализирующий о том, что запущен скрипт
      */
-    public static void setIsScriptRun() {
+    public void setIsScriptRun() {
         isScriptRun = true;
     }
 
     /**
      * Опускает флаг, сигнализирующий о том, что запущен скрипт
      */
-    public static void deleteIsScriptRun() {
+    public void deleteIsScriptRun() {
         isScriptRun = false;
     }
 }

@@ -23,6 +23,8 @@ public class InputManager {
 
     private ArrayList<String> filesNamesList = new ArrayList<>();
 
+    private StatusScript statusScript = new StatusScript();
+
     /**
      * Сканер для чтения пользовательского ввода/ввода из файла
      */
@@ -57,6 +59,15 @@ public class InputManager {
         return usedScanner;
     }
 
+    /**
+     * Получить состояние скрипта
+     *
+     * @return состояние скрипта
+     */
+    public StatusScript getStatusScript() {
+        return statusScript;
+    }
+
 
     /**
      * Запуск скрипта из файла
@@ -77,7 +88,7 @@ public class InputManager {
             usedScanner = new Scanner(filePath);
 
 
-            if (filesNamesList.isEmpty()) StatusScript.setIsScriptRun();
+            if (filesNamesList.isEmpty()) statusScript.setIsScriptRun();
 
             filesNamesList.add(fileName);
 
@@ -99,7 +110,8 @@ public class InputManager {
             }
 
             filesNamesList.remove(fileName);
-            if (filesNamesList.isEmpty()) StatusScript.deleteIsScriptRun();
+
+            console.println("Весь файл " + fileName + " прочитан!");
 
         } catch (
                 ScriptRecursionException | EmptyFileException | NotEnoughRightsException exception) {
@@ -108,15 +120,11 @@ public class InputManager {
                 FileNotFoundException exception) {
             console.printerror("Файл " + fileName + " со скриптом не найден!");
         } catch (
-                NoSuchElementException exception) {
-            console.println("");
-            console.printerror("Весь файл " + fileName + " прочитан!");
-        } catch (
                 IllegalStateException exception) {
             console.println("");
             console.printerror("Непредвиденная ошибка.");
         } finally {
-            StatusScript.deleteIsScriptRun();
+            if (filesNamesList.isEmpty()) statusScript.deleteIsScriptRun();
             usedScanner = oldScanner;
         }
 

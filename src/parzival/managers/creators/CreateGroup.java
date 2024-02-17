@@ -18,20 +18,22 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
 
     private final Console console;
     private final Scanner usedScanner = InputManager.getUsedScanner();
-    private final boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun;
 
     /**
      * Конструктор класса CreateGroup
      *
      * @param console консоль
+     * @param isScriptRun состояние скрипта
      */
-    public CreateGroup(Console console) {
+    public CreateGroup(Console console, boolean isScriptRun) {
         this.console = console;
+        this.isScriptRun = isScriptRun;
     }
 
 
     @Override
-    public StudyGroup make() throws IncorrectScriptException, IncorrectInputException {
+    public StudyGroup create() throws IncorrectScriptException, IncorrectInputException {
         StudyGroup studyGroup = new StudyGroup(
                 requestName(),
                 requestCoordinates(),
@@ -61,7 +63,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
             try {
                 String variable = usedScanner.nextLine().trim();
 
-                if (isScriptRun) console.println(variable);
+                if (isScriptRun) console.println(variable + " ");
                 if (variable.isEmpty()) throw new MustBeNotEmptyException();
 
                 number = Long.parseLong(variable);
@@ -88,7 +90,6 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
             try {
                 name = usedScanner.nextLine().trim();
 
-
                 if (isScriptRun) console.println(name);
                 if (name.isEmpty()) throw new MustBeNotEmptyException();
                 break;
@@ -105,7 +106,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     }
 
     private Coordinates requestCoordinates() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreateCoordinates(console)).make();
+        return (new CreateCoordinates(console, isScriptRun)).create();
     }
 
     private Long requestStudentsCount() throws IncorrectScriptException {
@@ -145,11 +146,11 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     }
 
     private Semester requestSemester() throws IncorrectScriptException {
-        return new CreateSemester(console).make();
+        return new CreateSemester(console, isScriptRun).create();
     }
 
     private Person requestGroupAdmin() throws IncorrectScriptException, IncorrectInputException {
-        return (new CreatePerson(console)).make();
+        return (new CreatePerson(console, isScriptRun)).create();
     }
 
 }

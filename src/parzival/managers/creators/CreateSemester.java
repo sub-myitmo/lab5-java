@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author petrovviacheslav
  */
 public class CreateSemester extends BaseCreator<Semester> {
-    private final boolean isScriptRun = StatusScript.getIsScriptRun();
+    private final boolean isScriptRun;
     private final Console console;
     private final Scanner usedScanner = InputManager.getUsedScanner();
 
@@ -25,13 +25,15 @@ public class CreateSemester extends BaseCreator<Semester> {
      * Конструктор класса CreateSemester
      *
      * @param console консоль
+     * @param isScriptRun состояние скрипта
      */
-    public CreateSemester(Console console) {
+    public CreateSemester(Console console, boolean isScriptRun) {
         this.console = console;
+        this.isScriptRun = isScriptRun;
     }
 
     @Override
-    public Semester make() throws IncorrectScriptException {
+    public Semester create() throws IncorrectScriptException {
         Semester semester;
         while (true) {
             console.println("Список номеров семестров - " + Semester.getNames());

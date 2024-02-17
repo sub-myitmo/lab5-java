@@ -9,5 +9,5 @@ import parzival.exceptions.IncorrectScriptException;
  * @author petrovviacheslav
  */
 public abstract class BaseCreator<T> {
-    abstract T make() throws IncorrectScriptException, IncorrectInputException;
+    abstract T create() throws IncorrectScriptException, IncorrectInputException;
 }

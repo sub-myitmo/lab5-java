@@ -1,6 +1,5 @@
 package parzival.exceptions;
 
-import parzival.managers.InputManager;
 
 /**
  * Выбрасывается, если при рекурсивном вызове файлов

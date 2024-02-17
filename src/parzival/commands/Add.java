@@ -6,6 +6,7 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.WrongCommandArgsException;
 import parzival.managers.CollectionManager;
 import parzival.managers.Console;
+import parzival.managers.StatusScript;
 import parzival.managers.creators.CreateGroup;
 
 
@@ -18,17 +19,20 @@ public class Add extends Command {
     /**
      * Менеджер коллекции
      */
-    private final CollectionManager collectionManager;
+    private CollectionManager collectionManager;
+    private StatusScript statusScript;
 
     /**
      * Конструктор класса Add
      *
      * @param collectionManager менеджер коллекции
      * @param console           консоль
+     * @param statusScript состояние скрипта
      */
-    public Add(CollectionManager collectionManager, Console console) {
+    public Add(CollectionManager collectionManager, Console console, StatusScript statusScript) {
         super(console, "add {element}", "добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;
+        this.statusScript = statusScript;
     }
 
     /**
@@ -42,7 +46,7 @@ public class Add extends Command {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
 
-            collectionManager.addElementToCollection((new CreateGroup(console)).make());
+            collectionManager.addElementToCollection((new CreateGroup(console, statusScript.getIsScriptRun())).create());
 
             console.println("Группа была создана успешно");
             return true;
