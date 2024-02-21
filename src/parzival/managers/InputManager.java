@@ -165,6 +165,7 @@ public class InputManager {
         if (argsCommand[0].isEmpty()) return 0;
 
         Command command = commandManager.getCommands().get(argsCommand[0]);
+
         if (command == null) {
             console.printerror("Команда '" + argsCommand[0] + "' не найдена, используйте команду 'help', чтобы вывести справку");
             return 1;

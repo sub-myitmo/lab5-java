@@ -10,6 +10,8 @@ import parzival.models.StudyGroup;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Stack;
 
 /**
@@ -51,10 +53,13 @@ public class ParseManager {
                 studyGroups = gson.fromJson(json, collectionType);
 
                 ArrayList<Long> idList = new ArrayList<>();
-                for (StudyGroup elem : studyGroups){
-                    if (idList.contains(elem.getId())) throw new SameIdException();
+                for (StudyGroup elem : studyGroups) {
+                    if (idList.contains(elem.getId()) || !elem.validate()) throw new SameIdException();
                     idList.add(elem.getId());
                 }
+
+                Comparator<StudyGroup> comparator = (o1, o2) -> o1.getStudentsCount().compareTo(o2.getStudentsCount());
+                studyGroups.sort(comparator);
 
             }
             return studyGroups;

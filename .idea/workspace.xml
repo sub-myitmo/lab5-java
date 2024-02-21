@@ -34,7 +34,6 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/index-files/index-8.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/index-files/index-9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc-files/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/member-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/Main.html" afterDir="false" />
@@ -62,6 +61,7 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/MustBeNotEmptyException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/MustBeNotEmptyException.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/NoExistCollectionException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/NoExistCollectionException.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/NotEnoughRightsException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/NotEnoughRightsException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/SameIdException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/SameIdException.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/ScriptRecursionException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/ScriptRecursionException.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/WrongCommandArgsException.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/WrongCommandArgsException.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/exceptions/package-summary.html" afterDir="false" />
@@ -100,22 +100,15 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc-files/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/lab5-java.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/lab5-java.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/commands/UpdateId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/UpdateId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/InputManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/ParseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/ParseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/StudyGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/StudyGroup.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/exceptions/ScriptRecursionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/exceptions/ScriptRecursionException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/ParseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/ParseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/managers/StatusScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/StatusScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/BaseCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/BaseCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateCoordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateCoordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateLocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreatePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreatePerson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateSemester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateSemester.java" afterDir="false" />
@@ -152,28 +145,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/slape/Desktop/myitmo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/slava-linux/Рабочий стол/lab5-java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/out/artifacts/lab5_java_jar" />
@@ -215,7 +208,11 @@
       <workItem from="1708067400468" duration="1070000" />
       <workItem from="1708068708874" duration="2974000" />
       <workItem from="1708123128670" duration="683000" />
-      <workItem from="1708182211714" duration="3842000" />
+      <workItem from="1708182211714" duration="3937000" />
+      <workItem from="1708186373516" duration="42000" />
+      <workItem from="1708261447914" duration="916000" />
+      <workItem from="1708265692378" duration="29000" />
+      <workItem from="1708345435922" duration="524000" />
     </task>
     <servers />
   </component>

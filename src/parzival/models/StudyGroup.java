@@ -49,7 +49,6 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         this.groupAdmin = groupAdmin;
     }
 
-    //public StudyGroup(){}
 
     /**
      * Обновить поле id для верного создания новых StudyGroups
@@ -58,8 +57,10 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
      */
     public static void updateNextId(CollectionManager collectionManager) {
         if (collectionManager.getSizeCollection() != 0) {
-            long maxId = collectionManager
-                    .getStackCollection().lastElement().getId();
+            long maxId = 0;
+            for (StudyGroup elem : collectionManager.getStackCollection()){
+                maxId = Math.max(elem.getId(), maxId);
+            }
             nextId = maxId + 1;
         }
     }
@@ -175,6 +176,7 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
         this.semesterEnum = studyGroup.getSemesterEnum();
         this.groupAdmin = studyGroup.getGroupAdmin();
     }
+
 
     @Override
     public int compareTo(StudyGroup s) {

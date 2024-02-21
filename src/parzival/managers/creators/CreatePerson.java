@@ -6,7 +6,6 @@ import parzival.exceptions.IncorrectScriptException;
 import parzival.exceptions.MustBeNotEmptyException;
 import parzival.managers.Console;
 import parzival.managers.InputManager;
-import parzival.managers.StatusScript;
 import parzival.models.Location;
 import parzival.models.Person;
 
