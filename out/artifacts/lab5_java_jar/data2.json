@@ -3,7 +3,7 @@
     "id": 1,
     "name": "P3108",
     "coordinates": {
-      "x": 56,
+      "x": 63,
       "y": 65.0
     },
     "creationDate": "26/12/2014",
@@ -13,6 +13,29 @@
     "semesterEnum": "THIRD",
     "groupAdmin": {
       "name": "Slava",
+      "birthday": "2023-03-11T02:50:42.568977200",
+      "weight": 70.15,
+      "location": {
+        "x": 1.2,
+        "y": 1,
+        "z": 1.134
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "P3101",
+    "coordinates": {
+      "x": 56,
+      "y": 65.0
+    },
+    "creationDate": "26/12/2014",
+    "studentsCount": 200,
+    "expelledStudents": 50,
+    "transferredStudents": 5,
+    "semesterEnum": "THIRD",
+    "groupAdmin": {
+      "name": "вовововово",
       "birthday": "2023-03-11T02:50:42.568977200",
       "weight": 70.15,
       "location": {
@@ -46,25 +69,48 @@
     }
   },
   {
-    "id": 3,
-    "name": "11",
+    "id": 4,
+    "name": "opo",
     "coordinates": {
-      "x": 11,
-      "y": 11.0
+      "x": 12,
+      "y": 12.0
     },
-    "creationDate": "15/02/2024",
-    "studentsCount": 11,
-    "expelledStudents": 11,
-    "transferredStudents": 11,
+    "creationDate": "25/02/2024",
+    "studentsCount": 121,
+    "expelledStudents": 12,
+    "transferredStudents": 12,
+    "semesterEnum": "EIGHTH",
+    "groupAdmin": {
+      "name": "Afe",
+      "birthday": "1111-11-11T11:11:11",
+      "weight": 12.0,
+      "location": {
+        "x": 12.0,
+        "y": 12,
+        "z": 12.0
+      }
+    }
+  },
+  {
+    "id": 5,
+    "name": "P707",
+    "coordinates": {
+      "x": 12,
+      "y": 12.0
+    },
+    "creationDate": "25/02/2024",
+    "studentsCount": 101,
+    "expelledStudents": 12,
+    "transferredStudents": 12,
     "semesterEnum": "FIRST",
     "groupAdmin": {
-      "name": "1fd",
-      "birthday": "1111-11-11T11:11:11.110",
-      "weight": 123.0,
+      "name": "afe",
+      "birthday": "1111-11-11T11:11:11",
+      "weight": 12.0,
       "location": {
-        "x": 23.0,
-        "y": 23,
-        "z": 45.0
+        "x": 12.0,
+        "y": 12,
+        "z": 12.0
       }
     }
   }

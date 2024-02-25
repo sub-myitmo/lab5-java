@@ -1,7 +1,5 @@
 package parzival.models;
 
-import parzival.models.validate.Validatable;
-
 import java.util.Objects;
 
 /**

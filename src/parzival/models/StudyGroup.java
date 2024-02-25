@@ -1,7 +1,6 @@
 package parzival.models;
 
 import parzival.managers.CollectionManager;
-import parzival.models.validate.Validatable;
 
 import java.util.Date;
 import java.util.Objects;

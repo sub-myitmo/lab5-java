@@ -1,4 +1,4 @@
-package parzival.models.validate;
+package parzival.models;
 
 /**
  * Интерфейс для классов, поля которых могут быть валидными, а могут и не быть
