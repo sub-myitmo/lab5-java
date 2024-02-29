@@ -3,7 +3,7 @@ package parzival.managers;
 
 import parzival.commands.Command;
 import parzival.exceptions.EmptyFileException;
-import parzival.exceptions.NotEnoughRightsException;
+import parzival.exceptions.NotEnoughRightsReadException;
 import parzival.exceptions.ScriptRecursionException;
 
 import java.io.File;
@@ -84,11 +84,13 @@ public class InputManager {
             int status = 1;
 
             var filePath = new File(fileName);
-            if (!filePath.canRead()) throw new NotEnoughRightsException();
+            if (!filePath.canRead()) throw new NotEnoughRightsReadException();
             usedScanner = new Scanner(filePath);
 
 
+
             if (filesNamesList.isEmpty()) statusScript.setIsScriptRun();
+
 
             filesNamesList.add(fileName);
 
@@ -103,7 +105,7 @@ public class InputManager {
                 console.println(gettingString);
 
                 if (scriptCommand[0].equals("execute_script")) {
-                    if (filesNamesList.contains(scriptCommand[1])) throw new ScriptRecursionException();
+                    if (filesNamesList.contains(scriptCommand[1].substring(0, scriptCommand[1].length()-1))) throw new ScriptRecursionException();
                 }
 
                 status = executeCommand(scriptCommand);
@@ -111,10 +113,10 @@ public class InputManager {
 
             filesNamesList.remove(fileName);
 
-            console.println("Весь файл " + fileName + " прочитан!");
+            console.printerror("Весь файл " + fileName + " прочитан!");
 
         } catch (
-                ScriptRecursionException | EmptyFileException | NotEnoughRightsException exception) {
+                ScriptRecursionException | EmptyFileException | NotEnoughRightsReadException exception) {
             console.printerror(exception.toString());
         } catch (
                 FileNotFoundException exception) {

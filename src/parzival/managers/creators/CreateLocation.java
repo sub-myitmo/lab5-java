@@ -32,14 +32,19 @@ public class CreateLocation extends BaseCreator<Location> {
 
 
     @Override
-    public Location create() throws IncorrectScriptException, IncorrectInputException {
-        Location location = new Location(
-                requestX(),
-                requestY(),
-                requestZ()
-        );
-        if (!location.validate()) throw new IncorrectInputException();
-        return location;
+    public Location create() throws IncorrectScriptException {
+        try {
+            Location location = new Location(
+                    requestX(),
+                    requestY(),
+                    requestZ()
+            );
+            if (!location.validate()) throw new IncorrectInputException();
+            return location;
+        } catch (IncorrectInputException e){
+            console.printerror(e.toString());
+            return create();
+        }
     }
 
     /**
@@ -65,7 +70,7 @@ public class CreateLocation extends BaseCreator<Location> {
                 console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.printerror("Надо ввести число!");
+                console.printerror("Надо ввести число в формате float!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
                 console.printerror("Непредвиденная ошибка!");

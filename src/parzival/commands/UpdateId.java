@@ -53,7 +53,7 @@ public class UpdateId extends Command {
             console.println("Группа была заменена успешно");
             return true;
 
-        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException |
+        } catch (WrongCommandArgsException | IncorrectScriptException |
                  NoExistCollectionException e) {
             console.printerror(e.toString());
             return false;

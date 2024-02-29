@@ -89,10 +89,10 @@ public class Person implements Validatable {
 
     @Override
     public String toString() {
-        return "Person{" + "\n\tname=" + name +
-                ", \n\tbirthday=" + birthday +
-                ", \n\tweight=" + weight +
-                ", \n\tlocation='" + location + '\'' +
-                "\n}";
+        return "Person{" + "name=" + name +
+                ", birthday=" + birthday +
+                ", weight=" + weight +
+                ", location='" + location + '\'' +
+                "}";
     }
 }

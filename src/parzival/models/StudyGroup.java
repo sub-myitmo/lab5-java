@@ -206,15 +206,17 @@ public class StudyGroup implements Comparable<StudyGroup>, Validatable {
     @Override
     public String toString() {
         return "StudyGroup{" +
-                "\nid=" + id +
-                ", \nname='" + name + '\'' +
-                ", \ncoordinates=" + coordinates +
-                ", \ncreationDate=" + creationDate +
-                ", \nstudentsCount=" + studentsCount +
-                ", \nexpelledStudents=" + expelledStudents +
-                ", \ntransferredStudents=" + transferredStudents +
-                ", \nsemesterEnum=" + semesterEnum +
-                ", \ngroupAdmin=" + groupAdmin +
-                "\n}";
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", studentsCount=" + studentsCount +
+                ", expelledStudents=" + expelledStudents +
+                ", transferredStudents=" + transferredStudents +
+                ", semesterEnum=" + semesterEnum +
+                ", groupAdmin=" + groupAdmin +
+                "}";
     }
 }
+
+

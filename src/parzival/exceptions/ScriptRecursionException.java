@@ -9,6 +9,6 @@ package parzival.exceptions;
 public class ScriptRecursionException extends Exception {
     @Override
     public String toString() {
-        return "Нельзя вызывать файлы рекурсивно, при выполнении скрипта вы снова обращаетесь к тому же файлу!";
+        return "Нельзя вызывать файлы рекурсивно, при выполнении скрипта вы снова обращаетесь к уже выполняемому файлу!";
     }
 }

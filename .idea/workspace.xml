@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5605622e-55e6-49b6-aa8f-0b843e1b8b49" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_lab5.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/allclasses-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc-files/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/element-list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/help-doc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/index-files/index-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/index-files/index-10.html" afterDir="false" />
@@ -39,7 +38,6 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/member-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc-files/package-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/package-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/Main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/commands/Add.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/commands/Add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/commands/Clear.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/commands/Clear.html" afterDir="false" />
@@ -96,6 +94,7 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/Person.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/Semester.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/Semester.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/StudyGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/StudyGroup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/Validatable.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/Validatable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/models/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/parzival/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/parzival/package-summary.html" afterDir="false" />
@@ -103,18 +102,44 @@
       <change beforePath="$PROJECT_DIR$/javadoc-files/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/serialized-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javadoc-files/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc-files/type-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/data2.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/data2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/data2.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/lab5-java.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab5_java_jar/lab5-java.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Add.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Clear.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Clear.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Save.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/Save.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/UpdateId.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/commands/UpdateId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/NotEnoughRightsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/ScriptRecursionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/exceptions/ScriptRecursionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/CollectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/InputManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/ParseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/ParseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateCoordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateCoordinates.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreateLocation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreatePerson.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/managers/creators/CreatePerson.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Coordinates.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Location.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/Person.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/StudyGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/StudyGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab5-java/parzival/models/validate/Validatable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/commands/UpdateId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/commands/UpdateId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/exceptions/NotEnoughRightsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/exceptions/NotEnoughRightsReadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/exceptions/ScriptRecursionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/exceptions/ScriptRecursionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/ParseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/ParseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateCoordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateCoordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreateLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parzival/managers/creators/CreatePerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/managers/creators/CreatePerson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/models/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/models/Coordinates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/models/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/models/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parzival/models/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/models/StudyGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parzival/models/validate/Validatable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parzival/models/Validatable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +198,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/out/artifacts/lab5_java_jar" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="parzival.exceptions" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -217,6 +245,9 @@
       <workItem from="1708345435922" duration="524000" />
       <workItem from="1708864057657" duration="540000" />
       <workItem from="1708867234923" duration="736000" />
+      <workItem from="1709114649155" duration="1558000" />
+      <workItem from="1709151861445" duration="1214000" />
+      <workItem from="1709182597633" duration="10545000" />
     </task>
     <servers />
   </component>

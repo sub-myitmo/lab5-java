@@ -5,9 +5,9 @@ package parzival.exceptions;
  *
  * @author petrovviacheslav
  */
-public class NotEnoughRightsException extends Exception{
+public class NotEnoughRightsWriteException extends Exception{
     @Override
     public String toString() {
-        return "Не хватает прав для доступа к файлу (запись/чтение)!";
+        return "Не хватает прав для доступа к файлу (запись)!";
     }
 }

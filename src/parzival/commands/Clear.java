@@ -38,6 +38,7 @@ public class Clear extends Command {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
             collectionManager.clearCollection();
+            console.println("Коллекция успешно очищена");
             return true;
         } catch (WrongCommandArgsException e) {
             console.printerror(e.toString());

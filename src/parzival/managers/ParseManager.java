@@ -58,8 +58,8 @@ public class ParseManager {
                     idList.add(elem.getId());
                 }
 
-                Comparator<StudyGroup> comparator = (o1, o2) -> o1.getStudentsCount().compareTo(o2.getStudentsCount());
-                studyGroups.sort(comparator);
+                //Comparator<StudyGroup> comparator = (o1, o2) -> o1.getStudentsCount().compareTo(o2.getStudentsCount());
+                studyGroups.sort((o1, o2) -> o1.getStudentsCount().compareTo(o2.getStudentsCount()));
 
             }
             return studyGroups;

@@ -58,10 +58,10 @@ public class CreatePerson extends BaseCreator<Person> {
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -82,13 +82,13 @@ public class CreatePerson extends BaseCreator<Person> {
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             } catch (Exception e) {
-                console.println("Неверно ввели дату");
+                console.printerror("Неверно ввели дату");
                 if (isScriptRun) throw new IncorrectScriptException();
             }
         }

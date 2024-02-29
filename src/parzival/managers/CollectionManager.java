@@ -129,7 +129,7 @@ public class CollectionManager {
             return;
         }
         console.println("Элементы коллекции: " + stackCollection.size());
-        String studyGroupsInString = stackCollection.toString().replaceAll("\\[", "").replaceAll("]", "");
+        String studyGroupsInString = stackCollection.toString().replaceAll(", StudyGroup", ",\nStudyGroup").replaceAll("\\[", "").replaceAll("]", "");
         console.println(studyGroupsInString);
     }
 

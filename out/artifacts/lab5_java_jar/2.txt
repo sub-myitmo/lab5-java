@@ -1,5 +1,6 @@
 add 1
 info
+execute_script 1.txt
 add
 P707
 12

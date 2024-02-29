@@ -51,7 +51,7 @@ public class Add extends Command {
             console.println("Группа была создана успешно");
             return true;
 
-        } catch (WrongCommandArgsException | IncorrectInputException | IncorrectScriptException e) {
+        } catch (WrongCommandArgsException | IncorrectScriptException e) {
             console.printerror(e.toString());
             return false;
         }

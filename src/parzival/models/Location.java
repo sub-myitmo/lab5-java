@@ -60,7 +60,7 @@ public class Location implements Validatable {
 
     @Override
     public String toString() {
-        return "\n\tLocation{" + "\n\t\tx=" + x + ", \n\t\ty=" + y + ", \n\t\tz=" + z + "\n\t}";
+        return "Location{" + "x=" + x + ", y=" + y + ", z=" + z + "}";
     }
 
     @Override

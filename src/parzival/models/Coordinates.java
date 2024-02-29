@@ -48,6 +48,6 @@ public class Coordinates implements Validatable {
 
     @Override
     public String toString() {
-        return "Coordinates{" + "\n\tx=" + x + ", \n\ty=" + y + "\n}";
+        return "Coordinates{" + "x=" + x + ", y=" + y + "}";
     }
 }

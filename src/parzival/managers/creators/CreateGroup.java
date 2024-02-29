@@ -23,7 +23,7 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
     /**
      * Конструктор класса CreateGroup
      *
-     * @param console консоль
+     * @param console     консоль
      * @param isScriptRun состояние скрипта
      */
     public CreateGroup(Console console, boolean isScriptRun) {
@@ -33,19 +33,24 @@ public class CreateGroup extends BaseCreator<StudyGroup> {
 
 
     @Override
-    public StudyGroup create() throws IncorrectScriptException, IncorrectInputException {
-        StudyGroup studyGroup = new StudyGroup(
-                requestName(),
-                requestCoordinates(),
-                new Date(),
-                requestStudentsCount(),
-                requestExpelledStudents(),
-                requestTransferredStudents(),
-                requestSemester(),
-                requestGroupAdmin()
-        );
-        if (!studyGroup.validate()) throw new IncorrectInputException();
-        return studyGroup;
+    public StudyGroup create() throws IncorrectScriptException {
+        try {
+            StudyGroup studyGroup = new StudyGroup(
+                    requestName(),
+                    requestCoordinates(),
+                    new Date(),
+                    requestStudentsCount(),
+                    requestExpelledStudents(),
+                    requestTransferredStudents(),
+                    requestSemester(),
+                    requestGroupAdmin()
+            );
+            if (!studyGroup.validate()) throw new IncorrectInputException();
+            return studyGroup;
+        } catch (IncorrectInputException e) {
+            console.printerror(e.toString());
+            return create();
+        }
     }
 
 

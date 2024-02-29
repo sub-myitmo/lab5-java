@@ -1,6 +1,7 @@
 package parzival.managers;
 
-import parzival.exceptions.NotEnoughRightsException;
+import parzival.exceptions.NotEnoughRightsReadException;
+import parzival.exceptions.NotEnoughRightsWriteException;
 
 import java.io.*;
 
@@ -31,11 +32,14 @@ public class FileManager {
      * @return String текст из файла
      */
     public String readFromFile(String fileName) {
+        var filePath = new File(fileName);
+        InputStreamReader inputStreamReader;
         try {
-            var filePath = new File(fileName);
-            if (!filePath.canRead()) throw new NotEnoughRightsException();
 
-            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
+            if (!filePath.canRead()) throw new NotEnoughRightsReadException();
+            if (!filePath.canWrite()) console.println("Внимание! Вы не сможете использовать команду save!");
+
+            inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
             StringBuilder stringFile = new StringBuilder();
             int symbolNow = inputStreamReader.read();
             while (symbolNow != -1) {
@@ -44,13 +48,11 @@ public class FileManager {
             }
             inputStreamReader.close();
             return stringFile.toString();
-        } catch (NotEnoughRightsException e) {
-            console.println(e.toString());
-            System.exit(0);
+        } catch (NotEnoughRightsReadException e) {
+            console.printerror(e + " Коллекция пуста!");
             return "";
         } catch (IOException e) {
-            console.println("Json-файл не найден.");
-            System.exit(0);
+            console.printerror("Json-файл не найден. Коллекция пуста!");
             return "";
         }
     }
@@ -64,13 +66,14 @@ public class FileManager {
     public void writeToFile(String fileName, String text) {
         try {
             var filePath = new File(fileName);
-            if (!filePath.canWrite()) throw new NotEnoughRightsException();
+            if (!filePath.canWrite()) throw new NotEnoughRightsWriteException();
 
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(fileName));
             char[] chars = text.toCharArray();
             outputStreamWriter.write(chars, 0, chars.length);
+            console.println("Коллекция была успешно сохранена");
             outputStreamWriter.close();
-        } catch (NotEnoughRightsException e) {
+        } catch (NotEnoughRightsWriteException e) {
             console.println(e.toString());
         } catch (IOException e) {
             console.println("ошибка при записи файла!");

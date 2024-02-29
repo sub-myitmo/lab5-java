@@ -22,7 +22,7 @@ public class CreateCoordinates extends BaseCreator<Coordinates> {
     /**
      * Конструктор класса CreateCoordinates
      *
-     * @param console консоль
+     * @param console     консоль
      * @param isScriptRun состояние скрипта
      */
     public CreateCoordinates(Console console, boolean isScriptRun) {
@@ -32,13 +32,18 @@ public class CreateCoordinates extends BaseCreator<Coordinates> {
 
 
     @Override
-    public Coordinates create() throws IncorrectScriptException, IncorrectInputException {
-        Coordinates coordinates = new Coordinates(
-                requestX(),
-                requestY()
-        );
-        if (!coordinates.validate()) throw new IncorrectInputException();
-        return coordinates;
+    public Coordinates create() throws IncorrectScriptException {
+        try {
+            Coordinates coordinates = new Coordinates(
+                    requestX(),
+                    requestY()
+            );
+            if (!coordinates.validate()) throw new IncorrectInputException();
+            return coordinates;
+        } catch (IncorrectInputException e) {
+            console.printerror(e.toString());
+            return create();
+        }
     }
 
     /**
@@ -58,16 +63,17 @@ public class CreateCoordinates extends BaseCreator<Coordinates> {
                 if (isScriptRun) console.println(variable);
 
                 X = Integer.parseInt(variable);
+                if (X > 265) throw new NumberFormatException();
                 break;
 
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число!");
+                console.printerror("Надо ввести число в формате Integer и не больше 265!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -88,13 +94,13 @@ public class CreateCoordinates extends BaseCreator<Coordinates> {
                 break;
 
             } catch (NumberFormatException e) {
-                console.println("Надо ввести число!");
+                console.printerror("Надо ввести число в формате double!");
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (MustBeNotEmptyException e) {
-                console.println(e.toString());
+                console.printerror(e.toString());
                 if (isScriptRun) throw new IncorrectScriptException();
             } catch (IllegalStateException e) {
-                console.println("Непредвиденная ошибка!");
+                console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }

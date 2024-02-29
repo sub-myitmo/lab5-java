@@ -47,9 +47,8 @@ public class Save extends Command {
     public boolean execute(String[] args) {
         try {
             if (!args[1].isEmpty()) throw new WrongCommandArgsException();
-            fileManager.writeToFile("data2.json", parseManager.getJsonFromStack(collectionManager.getStackCollection()));
+            fileManager.writeToFile(FileManager.getName(), parseManager.getJsonFromStack(collectionManager.getStackCollection()));
 
-            console.println("Коллекция была успешно сохранена");
             return true;
         } catch (WrongCommandArgsException e) {
             console.printerror(e.toString());
